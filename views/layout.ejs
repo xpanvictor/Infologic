@@ -1,0 +1,74 @@
+<!-- -------- Glory to God -------- -->
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title><%= title %></title>
+        
+        <!-- Font-Awesome Icons -->
+        <link rel="stylesheet" href="../node_modules/@fortawesome/fontawesome-free/css/all.css">
+        <!-- -------------- Owl carousel ---------------- --> 
+        <link rel="stylesheet" href="/stylesheets/owl.carousel.min.css">
+        <link rel="stylesheet" href="/stylesheets/owl.theme.default.min.css">
+        <!-- AOS library -->
+        <link rel="stylesheet" href="/stylesheets/aos-master/dist/aos.css">
+         <!-- Custom style -->
+        <link rel="stylesheet" href="/stylesheets/style.css">
+    </head>
+    <body class="">     
+    
+        <%- include('./partials/nav') %> 
+
+        <main>
+            <!-- ----------- Site Title ------------ -->
+
+        <section class="site-title">
+
+            <% if (title === "Home page") { %>
+                <%- include('./partials/sitebjoin.ejs') %> 
+            <% } %>
+
+            <% if (title === "Authors page") { %>
+                <%- include('./partials/authorsdisp.ejs') %> 
+            <% } %>
+
+            <% if (title === "Make blog") { %>
+                <%- include('./partials/writedisp.ejs') %> 
+            <% } %>
+
+            <%- include('./partials/about') %> 
+
+            <%- include('./partials/contact') %>  
+
+            <%- include('./partials/discussion') %> 
+            
+        </section>
+ 
+
+        <!-- ------/---- Site Title -------/---- -->
+        </main>
+
+        <%- body %>
+        <%- include('./partials/footer') %> 
+          
+
+        <!-- Jquery -->
+        <script type="text/javascript" src="/javascripts/jquery-3.6.0.min.js"></script>
+        <!-- Aos js from aos-master folder in stylesheets folder -->
+        <script src="/stylesheets/aos-master/dist/aos.js"></script>
+        <!-- -------------- Owl carousel ---------------- --> 
+        <script src="/javascripts/owl.carousel.min.js"></script>
+        <!-- -------------- Font awesome ---------------- --> 
+        <script src="/javascripts/all.js"></script>
+        <!-- Custom JS -->
+        <script src="/javascripts/index.js"></script>
+    </body>
+    
+</html>
+<!-- I give special thanks to the daily tuition youtube guy. His directions were followed greatly.
+     The design was just greatly manipulated.-->
+
+<!-- ----/---- Glory to God ------- -->

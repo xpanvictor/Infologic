@@ -1,0 +1,138 @@
+<div class="flex-column">
+    <div class="">
+        <% if (name){ %>
+            <h4>Welcome <%= name %></h4>
+        <% } %>
+    </div>
+    
+    <div class="">
+        <% if (typeof(errors) !== "undefined"){ %>
+            <ul style="list-style: none; margin-left: -2em;">
+                <% errors.forEach(function(error){ %>
+                    <li>
+                    <div class="alert alert-warning alert-dismissible sand" role="alert">
+                        <strong>Genius. </strong><%= error.msg %>
+                        <button type="button" class="close" onclick="sand()" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    </li>
+                <% }) %>
+            </ul>
+        <% }  %>
+    </div>
+    
+    <div class="">
+        <form class="form-master pl-2 pr-2 pb-4" method="POST" action="" onsubmit="this.story.value=textField.innerHTML;">
+            <input type="hidden" name="story" >
+            <div class="form-group">
+                <label for="title">Title</label>
+                <input class="form-control w-50" id="title" type="text" name="title"
+                value="<%= ('undefined' === typeof(blog) ? '' : blog.title) %>">
+            </div>
+        
+        
+            <div class="form-group">
+                <legend>Body</legend>
+                    <div class="edits bg-light h-25 p-1">
+                        <div class="btn-group" role="group" aria-label="ed-g">
+                            <button class="btn btn-outline-dark" type="button" onclick="execCmd('bold'); event.preventDefault();"> <img src="/images/edit_icons/004-bold.svg" alt=""> </button>
+                            <button class="btn btn-outline-dark" type="button" onclick="execCmd('italic');"> <img src="/images/edit_icons/024-italic.svg" alt=""> </button>
+                            <button class="btn btn-outline-dark" type="button" onclick="execCmd('underline');"> <img src="/images/edit_icons/059-underline.svg" alt=""> </button>
+                            <button class="btn btn-outline-dark" type="button" onclick="execCmd('strikeThrough');"> <img src="/images/edit_icons/048-strikethrough.svg" alt=""> </button>
+                            <button class="btn btn-outline-dark" type="button" onclick="execCmd('justifyLeft');"> <img src="/images/edit_icons/002-align left.svg" alt=""> </button>
+                            
+                        </div>
+                        <div class="btn-group" role="group" aria-label="ed-g">
+                            <button class="btn btn-outline-dark" type="button" onclick="execCmd('justifyCenter');"> <img src="/images/edit_icons/001-align center.svg" alt=""> </button>
+                            <button class="btn btn-outline-dark" type="button" onclick="execCmd('justifyRight');"> <img src="/images/edit_icons/003-align right.svg" alt=""> </button>
+                            <button class="btn btn-outline-dark" type="button" onclick="execCmd('indent');"> <img src="/images/edit_icons/012-indent.svg" alt=""> </button>
+                            <button class="btn btn-outline-dark" type="button" onclick="execCmd('outdent');"> <img src="/images/edit_icons/021-indent.svg" alt=""> </button>
+                        </div>
+        
+                        <div class="btn-group mr-2" role="group" aria-label="First group">
+                            <button class="btn btn-outline-dark" type="button" onclick="execCmd('superscript');"> <img src="/images/edit_icons/060-super.svg" alt=""> </button>
+                            <button class="btn btn-outline-dark" type="button" onclick="execCmd('subscript');"> <img src="/images/edit_icons/064-sub.png" alt=""> </button>
+                            <button class="btn btn-outline-dark" type="button" onclick="execCmd('insertParagraph');"> <img src="/images/edit_icons/036-paragraph.svg" alt="p"> </button>
+                            <button class="btn btn-outline-dark" type="button" onclick="execCmd('undo');"> <img src="/images/edit_icons/043-eraser.svg" alt=""> </button>
+                        </div>
+        
+                        <div class="btn-group mr-2" role="group" aria-label="First group">
+                            <button class="btn btn-outline-dark" type="button" onclick="execCmd('insertUnorderedList');"> <img src="/images/edit_icons/006-bullet list.svg" alt="ul"> </button>
+                            <button class="btn btn-outline-dark" type="button" onclick="execCmd('insertOrderedList');"> <img src="/images/edit_icons/065-ol.svg" alt="ol"> </button>
+                        </div>
+                        <div class="btn-group mr-2" role="group" aria-label="Next group">
+                            <button class="btn btn-outline-dark" type="button"  onclick="execCommandWithArg('insertImage', prompt('Enter Image URL', ''));"> <img src="/images/edit_icons/022-image.svg" alt="source code"> </button>
+                            <button class="btn btn-outline-dark" type="button" onclick="execCmd('insertHorizontalRule');"> <img src="/images/edit_icons/hr.png" alt="hr"> </button>
+                            <button class="btn btn-outline-dark" type="button" onclick="execCommandWithArg('createLink', prompt('Enter a URL', 'https://'));"> <img src="/images/edit_icons/link.ico" alt="link">
+                            </button>
+                            <button class="btn btn-outline-dark" type="button" onclick="execCmd('selectAll');"> <i>Select All</i></button>
+                            <button class="btn btn-outline-dark" type="button" onclick="toggleSource();"> <img src="/images/edit_icons/046-source.svg" alt="source code"> </button>
+                        </div>
+                        <div class="btn-group" role='group' aria-label="Next group">
+                            <select class="custom-select border-dark" onchange="execCommandWithArg('formatBlock', this.value);">
+                                    <option value="H1">H1</option>
+                                    <option value="H2">H2</option>
+                                    <option value="H3">H3</option>
+                                    <option value="H4">H4</option>
+                                    <option value="H5">H5</option>
+                                    <option value="H6">H6</option>
+                            </select>
+                            <select class="custom-select w-75 border-dark" onchange="execCommandWithArg('fontName', this.value);">
+                                <option value="Arial">Arial</option>
+                                <option value="Comic Sans M">Comic Sans MS</option>
+                                <option value="Courier">Courier</option>
+                                <option value="Georgia">Georgia</option>
+                                <option value="Tahoma">Tahoma</option>
+                                <option value="Times New Roman">Times New Roman</option>
+                                <option value="Verdana">Verdana</option>
+                            </select>
+                            <select class="custom-select border-dark w-25" onchange="execCommandWithArg('fontSize', this.value);">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                            </select>
+                        </div>
+                        <div class="btn-group mt-1">
+                                <span class="btn btn-outline-dark" type="button">
+                                    <label for='bc'>Text bg-color</label>
+                                    <input id='bc' type="color" name="" onchange="execCommandWithArg('hiliteColor', this.value)" />
+                                </span>
+                                <span class="btn btn-outline-dark" type="button">
+                                    <label for='fc'>Fore-color</label>
+                                    <input id="fc" type="color" name="" onchange="execCommandWithArg('foreColor', this.value)" />
+                                </span>
+                        </div>
+        
+                    </div>
+                <div name="textField" class="textField form-control mt-2" id="textField" >
+        
+                </div>
+        
+            </div>
+        
+        
+            <div class="card bg-light w-50 p-2">
+                <span class="card-title">Other Infos</span>
+                <div class="form-group form-check ml-2">
+                    <input type="checkbox" class="form-check-input" id="visible" name="visible" value="true">
+                <label class="form-check-label" for="visible">Visible</label>
+                </div>
+                <div class="form-group ml-2">
+                    <fieldset>Choose section</fieldset>
+                    <select class="custom-select" name="section">
+                          <option value="Other" selected>Other</option>
+                          <option value="Science">Science</option>
+                          <option value="Arts">Arts</option>
+                          <option value="Entertainment">Entertainment</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary" id="sub" >Save Post</button>
+            </div>
+        </form>
+    </div>
+
+</div>

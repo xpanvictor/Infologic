@@ -1,0 +1,164 @@
+<body>
+  
+      <!-- --------------  Main Section ---------------- -->
+
+      <main>
+
+        <!-- -------------- Blog carousel ---------------- -->
+        
+        <section class="carousel" data-aos="fade-down-right" data-aos-delay="100" data-aos-duration="3000">
+            <div class="container">
+                <div class="moveable owl-carousel owl-theme">
+
+                    <% for (var blog of blogs) { %>
+                        <div class="card" data-aos="fade-right" data-aos-delay="200">
+                            <div class="card-image">
+                                <img src="/images/blog.png" alt="">
+                            </div>
+                            <h4><%= blog.title %> </h4>
+                            <div class="card-author">
+                                <span class="auth text-black">Author:</span> <span class="name text-white">Admin</span>
+                            </div>
+                            <div class="text-area">
+                                <%- blog.story %> 
+                            </div>
+                            <button class="btn"><a href="/<%= blog.slug %>"> Read more </a></button>    
+                        </div>
+                    <% } %>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- --------/----- Blog carousel --------/------- --> 
+         
+        <!-- -------------- Blog random ---------------- -->
+        
+        <section class="major" data-aos="flip-right" data-aos-delay="100" data-aos-duration="2000">
+            <div class="random">
+                <h1>Random Blogs</h1>
+                <div id="posts">
+                    
+                    <% for (var blog of blogs) { %>
+                        <div class="post">
+                            <div class="post-image">
+                                <div>
+                                    <img src="/images/blog.png" alt="" class="src"> 
+                                </div>
+                                <div class="post-info button text-white">
+                                    <span><i class="fas fa-user">&nbsp;</i>Admin</span>&nbsp;
+                                    <span><i class="fas fa-calendar-alt">&nbsp;</i><%= blog.dateAddedF %> </span>&nbsp;
+                                    <span><i class="fas fa-user">&nbsp;</i><%= blog.section %> </span>
+                                </div>
+                            </div>
+                            <div class="post-title">
+                                <a href="#" class="title"><%= blog.title %> </a>
+                                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quo enim fugi
+                                    at eum vero neque autem, quod, molesti ae sunt vitae consectetur explicabo
+                                    delectus tempora ducimus magnam ad quasi provident dicta et! Lorem ipsum dolor
+                                    sit amet consectetur adipisicing elit. Libero autem blanditiis magni, quia reiciendis esse,
+                                     error veritatis veniam consequatur dolorum, accusamus corporis praesentium.
+                                    Quidem labore provident est ullam commodi pariatur.
+                                </p>
+                                <a href="/<%= blog.slug %> "><button>Continue reading</button></a>
+                            </div>
+                        </div>
+                    <% } %>
+                    
+                </div>
+            </div>
+
+            <aside class="side-groups">
+                <div class="categories" data-aos="zoom-up-left" data-aos-delay="1000" data-aos-duration="2000">
+                    <h1>Categories</h1>
+                    <ul class="category-list">
+                        <li class="llink"><a href="">Arts</a><span>{05}</span></li>
+                        <li class="llink"><a href="">Music</a><span>{21}</span></li>
+                        <li class="llink"><a href="">Science</a><span>{11}</span></li>
+                        <li class="llink"><a href="">Gaming world</a><span>{45}</span></li>
+                        <li class="llink"><a href="">Lifestyle</a><span>{63}</span></li>
+                        <li class="llink"><a href="">Others</a><span>{89}</span></li>
+                    </ul>
+                </div>
+
+                <div class="trending"  data-aos="zoom-out-up" data-aos-delay="100" data-aos-duration="2000">
+                    <h1>Trending</h1>
+                    <div class="set">
+                        <div class="thumb">
+                            <div class="post-title">
+                                <h4><a href="#" class="title">The title of the blog</a></h4>
+                                <div class="ptd">
+                                    <span>
+                                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quo enim fugi
+                                    at eum vero neque autem, quod, molesti ae sunt vitae consectetur explicabo
+                                    delectus tempora ducimus magnam ad quasi provident dicta et! Lorem ipsum dolor
+                                    sit amet consectetur adipisicing elit. Libero autem blanditiis magni, quia reiciendis esse,
+                                     error veritatis veniam consequatur dolorum, accusamus corporis praesentium.
+                                    Quidem labore provident est ullam commodi pariatur.
+                                    </span>
+                                </div>
+                                <a href="#"><button>Continue reading</button></a>
+                            </div>
+                        </div>
+                        <div class="thumb">
+                            <div class="post-title">
+                                <h4><a href="#" class="title">The title of the blog</a></h4>
+                                <div class="ptd">
+                                    <span>
+                                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quo enim fugi
+                                    at eum vero neque autem, quod, molesti ae sunt vitae consectetur explicabo
+                                    delectus tempora ducimus magnam ad quasi provident dicta et! Lorem ipsum dolor
+                                    sit amet consectetur adipisicing elit. Libero autem blanditiis magni, quia reiciendis esse,
+                                     error veritatis veniam consequatur dolorum, accusamus corporis praesentium.
+                                    Quidem labore provident est ullam commodi pariatur.
+                                    </span>
+                                </div>
+                                <a href="#"><button>Continue reading</button></a>
+                            </div>
+                        </div>
+                        <div class="thumb">
+                            <div class="post-title">
+                                <h4><a href="#" class="title">The title of the blog</a></h4>
+                                <div class="ptd">
+                                    <span>
+                                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quo enim fugi
+                                    at eum vero neque autem, quod, molesti ae sunt vitae consectetur explicabo
+                                    delectus tempora ducimus magnam ad quasi provident dicta et! Lorem ipsum dolor
+                                    sit amet consectetur adipisicing elit. Libero autem blanditiis magni, quia reiciendis esse,
+                                     error veritatis veniam consequatur dolorum, accusamus corporis praesentium.
+                                    Quidem labore provident est ullam commodi pariatur.
+                                    </span>
+                                </div>
+                                <a href="#"><button>Continue reading</button></a>
+                            </div>
+                        </div>
+                        <div class="thumb">
+                            <div class="post-title">
+                                <h4><a href="#" class="title">The title of the blog</a></h4>
+                                <div class="ptd">
+                                    <span>
+                                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quo enim fugi
+                                    at eum vero neque autem, quod, molesti ae sunt vitae consectetur explicabo
+                                    delectus tempora ducimus magnam ad quasi provident dicta et! Lorem ipsum dolor
+                                    sit amet consectetur adipisicing elit. Libero autem blanditiis magni, quia reiciendis esse,
+                                     error veritatis veniam consequatur dolorum, accusamus corporis praesentium.
+                                    Quidem labore provident est ullam commodi pariatur.
+                                    </span>
+                                </div>
+                                <a href="#"><button>Continue reading</button></a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+
+            </aside>
+            
+        </section>
+         <!-- --------/----- Blog random --------/------- --> 
+        
+    </main>
+
+    <!-- --------/-----  Main Section --------/------- -->
+
+</body>

@@ -1,0 +1,33 @@
+{
+  "name": "infologic",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www",
+    "devstart": "nodemon ./bin/www"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.15.4",
+    "aos": "^2.3.4",
+    "async": "^3.2.0",
+    "cookie-parser": "~1.4.4",
+    "cors": "^2.8.5",
+    "debug": "~2.6.9",
+    "ejs": "~2.6.1",
+    "express": "~4.16.1",
+    "express-ejs-layouts": "^2.5.1",
+    "express-validator": "^6.9.2",
+    "http-errors": "~1.6.3",
+    "luxon": "^1.25.0",
+    "marked": "^1.2.7",
+    "mongoose": "^5.11.12",
+    "morgan": "~1.9.1",
+    "owl.carousel": "^2.3.4",
+    "passport": "^0.4.1",
+    "passport-local": "^1.0.0",
+    "slugify": "^1.4.6"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}
