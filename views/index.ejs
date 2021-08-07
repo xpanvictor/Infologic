@@ -53,13 +53,9 @@
                             </div>
                             <div class="post-title">
                                 <a href="#" class="title"><%= blog.title %> </a>
-                                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quo enim fugi
-                                    at eum vero neque autem, quod, molesti ae sunt vitae consectetur explicabo
-                                    delectus tempora ducimus magnam ad quasi provident dicta et! Lorem ipsum dolor
-                                    sit amet consectetur adipisicing elit. Libero autem blanditiis magni, quia reiciendis esse,
-                                     error veritatis veniam consequatur dolorum, accusamus corporis praesentium.
-                                    Quidem labore provident est ullam commodi pariatur.
-                                </p>
+                                <div class="p">
+                                    <%- blog.story %> 
+                                </div>
                                 <a href="/<%= blog.slug %> "><button>Continue reading</button></a>
                             </div>
                         </div>
@@ -72,15 +68,13 @@
                 <div class="categories" data-aos="zoom-up-left" data-aos-delay="1000" data-aos-duration="2000">
                     <h1>Categories</h1>
                     <ul class="category-list">
-                        <li class="llink"><a href="">Arts</a><span>{05}</span></li>
-                        <li class="llink"><a href="">Music</a><span>{21}</span></li>
-                        <li class="llink"><a href="">Science</a><span>{11}</span></li>
-                        <li class="llink"><a href="">Gaming world</a><span>{45}</span></li>
-                        <li class="llink"><a href="">Lifestyle</a><span>{63}</span></li>
-                        <li class="llink"><a href="">Others</a><span>{89}</span></li>
+                        <% for (var count of counts) { %>
+                            <li class="llink"><a href=""><%= count.n %> </a><span><%= count.c %> </span></li>
+                        <% } %>
                     </ul>
                 </div>
 
+                <!-- ---------- A lil functioality needed for this to work. Learn ----------- -->
                 <div class="trending"  data-aos="zoom-out-up" data-aos-delay="100" data-aos-duration="2000">
                     <h1>Trending</h1>
                     <div class="set">

@@ -563,12 +563,13 @@ main .major #posts .post-title .title{
     top: 10px;
     margin: 10px;
 }
-main .major #posts .post-title p{
+main .major #posts .post-title .p{
     padding-left: 10px;
     background-color: rgba(255, 255, 255, 0.1);
-    height: 10vh;
-    overflow: hidden;
+    height: 16vh;
+    overflow-y: hidden;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin-top: 2vh;
     margin-bottom: 0;
 }
 main .major #posts .post-title button{

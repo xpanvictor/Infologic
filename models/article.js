@@ -26,7 +26,7 @@ articleSchema.pre('validate', function(next){
 articleSchema
 .virtual('description')
 .get(function(){ 
-    return this.story.slice(0, 250);
+    return this.story.slice(0, 50);
 })
 
 articleSchema

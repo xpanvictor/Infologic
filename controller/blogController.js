@@ -21,6 +21,7 @@ exports.blog_write_post = [
     var blog = new Blog({
     title: req.body.title,
     story: req.body.story,
+    description: req.body.rawstory,
     visible: req.body.visible,
     section: req.body.section
      });
