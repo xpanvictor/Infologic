@@ -18,7 +18,9 @@ const responsive = {
 function ctalk(){
   talk.style.display="none";
 }
+
 $(document).ready(function(){
+
   $nav = $('.navv');
   $toggleCollapse = $('.toggle-collapse');
   $toggleicon = $('.fa-bars');
@@ -106,8 +108,6 @@ $('.go-up span').click(function(){
     autoplayTimeout: 3000,
     responsive: responsive
   });
- 
- 
 
 });
 
@@ -147,3 +147,25 @@ function toggleSource() {
     showingSourceCode = true;
   }
 }
+
+//  The login/register transition functionality
+    // Buttons definitions
+    const regbtn = document.querySelector('#regbtn');
+    const logbtn = document.querySelector('#logbtn');
+    // Pages definitions
+    const regpage = document.querySelector('#register');
+    const logpage = document.querySelector('#login');
+    // Events functions definitions
+    function regopen(){
+      logpage.classList.add('hide');
+      regpage.classList.remove('hide');
+    }
+    function logopen(){
+      logpage.classList.remove('hide');
+      regpage.classList.add('hide');
+    }
+    // Events handlers
+    regbtn.addEventListener('click', regopen);
+    logbtn.addEventListener('click', logopen);
+    
+// End of functionality

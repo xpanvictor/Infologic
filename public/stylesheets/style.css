@@ -221,97 +221,7 @@ main .site-title{
     overflow-y: scroll;
     padding: 1rem;
 }
-/* ************* Join page site-title ***************** */
-#join .site-title{
-    align-items: center;
-    background-color: blue;
-    padding-top: .1rem !important;
-    flex-direction: column;
-}
-#join .site-title h1{
-    margin: -3% 0 5px;
-}
-#join .container-form{
-    background-color: rgba(156, 35, 35, 0.1);
-    border: 1px solid white;
-    box-shadow: 5px 5px rgba(0, 0, 0, 0.7);
-    border-radius: 5% 0 3% 0;
-    height: 80%;
-    width: 60%;
-}
-#join .container-form .inner{
-    height: 100%;
-    width: 100%;
-}
-#join .container-form .leader{
-    width: 80%;
-    margin: 1% 0 0;
-    height: 3rem;
-    word-spacing: 5px;
-}
-#join .container-form .leader h2{
-    display: inline-block;
-    height: 90%;
-    width: 4rem;
-    padding: initial 2px;
-    border: 2px solid #4caf50;
-    border-radius: 2%;
-    display: inline-flex;
-    flex-direction: column;
-    justify-content: center;
-    font-family: cursive;
-    font-size: 1rem;
-}
-#join .container-form .join{
-    margin: 6% auto 5px;
-    height: 80%;
-    width: 80%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 
-}
-#join .container-form .join #login .textbox{
-    width: 100%;
-    overflow: hidden;
-    font-size: 20px;
-    padding: 8px 0;
-    margin: 8px 0;
-    border-bottom: 2px solid #4caf50;
-}
-#join .textbox i{
-    width: 1rem;
-    float: left;
-    text-align: center;
-}
-#join .textbox input{
-    border: none;
-    outline: none;
-    background: none;
-    color: white;
-    font-size: 18px;
-    float: right;
-    margin: 0 5px;
-}
-#join .btn{
-    background: none;
-    width: fit-content;
-    height: fit-content;
-    border: 3px solid #4caf50;
-    padding: 1px;
-    font-size: 2.5rem;
-    float: right;
-    transform: rotate(-20deg);
-    transition: all .2s ease-in-out;
-}
-#join .btn:hover{
-    color: white;
-    transform: scale(1.5);
-}
-
-/* *****X******* Join page *******X********* */
 main .site-title .site-background{
     padding: 8rem 2rem 0;
     background: no-repeat url('/images/il.png');
@@ -921,6 +831,104 @@ main .author-main .alphabet-sort .alphabet{
 
 /* ******X****Blog page******X****** */
 
+/* ************* Join page site-title ***************** */
+#join .site-title{
+    align-items: center;
+    background-color: blue;
+    padding-top: .1rem !important;
+    flex-direction: column;
+}
+#join .site-title h1{
+    margin: -3% 0 5px;
+}
+#join .container-form{
+    background-color: rgba(156, 35, 35, 0.1);
+    border: 1px solid white;
+    box-shadow: 5px 5px rgba(0, 0, 0, 0.7);
+    border-radius: 5% 0 3% 0;
+    height: 80%;
+    width: 60%;
+}
+#join .container-form .inner{
+    height: 100%;
+    width: 100%;
+}
+#join .container-form .leader{
+    width: 80%;
+    margin: 1% 0 0;
+    height: 3rem;
+    word-spacing: 5px;
+}
+#join .container-form .leader h2{
+    display: inline-block;
+    height: 90%;
+    width: 4rem;
+    padding: initial 2px;
+    border: 2px solid #4caf50;
+    border-radius: 2%;
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    font-family: cursive;
+    font-size: 1rem;
+    cursor: pointer;
+}
+#join .container-form .join{
+    margin: 6% auto 5px;
+    height: 80%;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+}
+#join .container-form .join .textbox{
+    width: 100%;
+    overflow: hidden;
+    font-size: 20px;
+    padding: 8px 0;
+    margin: 8px 0;
+    border-bottom: 2px solid #4caf50;
+}
+#join .textbox i{
+    width: 1rem;
+    float: left;
+    text-align: center;
+}
+#join .textbox input{
+    border: none;
+    outline: none;
+    background: none;
+    color: white;
+    font-size: 18px;
+    float: right;
+    margin: 0 5px;
+}
+#join .btn{
+    background: none;
+    width: fit-content;
+    height: fit-content;
+    border: 3px solid #4caf50;
+    padding: 1px;
+    font-size: 2.5rem;
+    float: right;
+    transition: all .2s ease-in-out;
+}
+#join .btn:hover{
+    color: white;
+    transform: scale(1.5);
+    transform: rotate(40deg);
+}
+
+#join .container-form .hide{
+    display: none;
+}
+
+/* *****X******* Join page *******X********* */
+
+
 
 /* ************* MEDIAQUERIES ***************** */
 
@@ -1210,3 +1218,5 @@ main .author-main .alphabet-sort .alphabet{
 }
 
 /* *****X******* MEDIAQUERIES *******X********* */
+
+/* ************* Glory tp God ***************** */

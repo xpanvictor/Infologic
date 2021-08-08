@@ -3,21 +3,37 @@
     <div class="inner" data-aos="zoom-out-up" data-aos-delay="100" data-aos-duration="2000">
         <center>
             <div class="leader">
-                <h2>Login</h2>
-                <h2>Register</h2>
+                <h2 id="logbtn">Login</h2>
+                <h2 id="regbtn">Register</h2>
             </div>
         </center>
         <div class="join">
             <form action="/users/" method="POST" id="login">
                 <div class="textbox">
-                    <i class="fa fa-user" aria-hidden="true"></i>
+                    <i class="fa fa-envelope-square" aria-hidden="true"></i>
                     <input type="text" placeholder="email@gmail.com" name="email" id="">
                 </div>
                 <div class="textbox">
                     <i class="fa fa-lock" aria-hidden="true"></i>
                     <input type="password" placeholder="Password" name="password" id="">
                 </div>
-                <button class="btn"><i class="fas fa-arrow-circle-right fa-lg"></i></button>
+                <button class="btn"><i class="fas fa-paper-plane fa-lg"></i></button>
+            </form>
+
+            <form action="/users/" method="POST" id="register" class="hide">
+                <div class="textbox">
+                    <i class="fa fa-envelope-square" aria-hidden="true"></i>
+                    <input type="text" placeholder="email@gmail.com" name="email" id="">
+                </div>
+                <div class="textbox">
+                    <i class="fa fa-user" aria-hidden="true"></i>
+                    <input type="text" placeholder="Full name" name="password" id="">
+                </div>
+                <div class="textbox">
+                    <i class="fa fa-lock" aria-hidden="true"></i>
+                    <input type="password" placeholder="Password" name="password" id="">
+                </div>
+                <button class="btn"><i class="fas fa-paper-plane fa-lg"></i></button>
             </form>
         </div>
     </div>
