@@ -4,7 +4,7 @@ const userSchema = new mongoose.Schema({
   first_name: {type: String, required: true},
   last_name: {type: String, required: true},
   birthdate: {type: Date},
-  favourites: {type: mongoose.Schema.Types.ObjectId, ref: 'Article'},
+  favourites: [{title: String, body: String, date: Date.now}],
   reads: {type: mongoose.Schema.Types.ObjectId, ref: 'Article'},
   join_date: {type: Date, default: Date.now},
   contact: {type: String},
