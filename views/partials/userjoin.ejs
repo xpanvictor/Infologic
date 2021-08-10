@@ -3,35 +3,43 @@
     <div class="inner" data-aos="zoom-out-up" data-aos-delay="100" data-aos-duration="2000">
         <center>
             <div class="leader">
-                <h2 id="logbtn">Login</h2>
+                <h2 id="logbtn" class="highlight">Login</h2>
                 <h2 id="regbtn">Register</h2>
             </div>
         </center>
         <div class="join">
-            <form action="/users/" method="POST" id="login">
+            <form action="/users/member" method="POST" id="login">
                 <div class="textbox">
                     <i class="fa fa-envelope-square" aria-hidden="true"></i>
-                    <input type="text" placeholder="email@gmail.com" name="email" id="">
+                    <input type="text" placeholder="email@gmail.com" name="email">
                 </div>
                 <div class="textbox">
                     <i class="fa fa-lock" aria-hidden="true"></i>
-                    <input type="password" placeholder="Password" name="password" id="">
+                    <input type="password" placeholder="Password" name="password">
                 </div>
                 <button class="btn"><i class="fas fa-paper-plane fa-lg"></i></button>
             </form>
 
-            <form action="/users/" method="POST" id="register" class="hide">
+            <form action="/users/join" method="POST" id="register" class="hide">
                 <div class="textbox">
                     <i class="fa fa-envelope-square" aria-hidden="true"></i>
-                    <input type="text" placeholder="email@gmail.com" name="email" id="">
+                    <input type="text" placeholder="email@gmail.com" name="email">
                 </div>
                 <div class="textbox">
                     <i class="fa fa-user" aria-hidden="true"></i>
-                    <input type="text" placeholder="Full name" name="password" id="">
+                    <input type="text" placeholder="First name" name="fname">
+                </div>
+                <div class="textbox">
+                    <i class="fa fa-user" aria-hidden="true"></i>
+                    <input type="text" placeholder="Last name" name="lname">
+                </div>
+                <div class="textbox">
+                    <i class="fa fa-calendar" aria-hidden="true"></i>
+                    <input type="date"  name="bdate">
                 </div>
                 <div class="textbox">
                     <i class="fa fa-lock" aria-hidden="true"></i>
-                    <input type="password" placeholder="Password" name="password" id="">
+                    <input type="password" placeholder="Password" name="password">
                 </div>
                 <button class="btn"><i class="fas fa-paper-plane fa-lg"></i></button>
             </form>

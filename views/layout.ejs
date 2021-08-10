@@ -27,6 +27,10 @@
 
         <section class="site-title">
 
+            <% if (title === "error") { %>
+                <%- include('./partials/err.ejs') %> 
+            <% } %>
+
             <% if (title === "Home page") { %>
                 <%- include('./partials/sitebjoin.ejs') %> 
             <% } %>

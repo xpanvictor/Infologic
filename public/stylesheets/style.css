@@ -97,6 +97,11 @@ button{
     font-weight: 600;
 }
 
+.highlight{
+    background-color: rgba(200, 200, 200, 0.2);
+    box-shadow: 2px 2px rgba(0, 0, 0, 0.8);
+}
+
 .sspan{
     display: inline;
 }
@@ -1173,6 +1178,11 @@ main .author-main .alphabet-sort .alphabet{
     footer.footer .container{
         grid-template-columns: 1fr !important;
     }
+    #join #register{
+        height: min-content;
+        margin-top: 2rem;
+        overflow-y: auto;
+    }
     #join .textbox{
         display: flex;
         flex-direction: column;
@@ -1181,6 +1191,13 @@ main .author-main .alphabet-sort .alphabet{
     }
     #join .textbox input{
         margin: 5px 0;
+    }
+}
+
+/* ************* MQ 280 ***************** */
+@media only screen and (max-width: 280px){
+    #join #register{
+        margin-top: 4rem;
     }
 }
 
@@ -1215,6 +1232,7 @@ main .author-main .alphabet-sort .alphabet{
     #join .btn{
         font-size: 1.5rem;
     }
+   
 }
 
 /* *****X******* MEDIAQUERIES *******X********* */

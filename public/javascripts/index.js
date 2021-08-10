@@ -159,10 +159,14 @@ function toggleSource() {
     function regopen(){
       logpage.classList.add('hide');
       regpage.classList.remove('hide');
+      regbtn.classList.add('highlight');
+      logbtn.classList.remove('highlight');
     }
     function logopen(){
       logpage.classList.remove('hide');
       regpage.classList.add('hide');
+      logbtn.classList.add('highlight');
+      regbtn.classList.remove('highlight');
     }
     // Events handlers
     regbtn.addEventListener('click', regopen);
