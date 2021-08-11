@@ -6,7 +6,7 @@ var router = express.Router();
 router.get('/', user_controller.get_create);
 
 /* POST users login. */
-router.post('/member', user_controller.post_login);
+router.post('/login', user_controller.post_login);
 
 /* POST users create. */
 router.post('/join', user_controller.post_create);

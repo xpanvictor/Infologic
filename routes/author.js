@@ -6,6 +6,11 @@ var author_controller = require('../controller/authorController');
 /* GET all authors page. */
 router.get('/', author_controller.get_all);
 
+/* GET admin page. */
+router.get('/admin', function(req, res, next) {
+  res.render('admin', {title: 'Admin'});
+});
+
 /* GET Author create page. */
 router.get('/all', function(req, res, next) {
   res.send('Author create page not implemented');
@@ -14,11 +19,6 @@ router.get('/all', function(req, res, next) {
 /* GET specific authors page. */
 router.get('/:id', function(req, res, next) {
   res.send('Author ' + req.params.id + ' page not implemented');
-});
-
-/* GET edit authors page. */
-router.get('/:id/update', function(req, res, next) {
-  res.send('Update ' + req.params.id + ' author page not implemented');
 });
 
 module.exports = router;

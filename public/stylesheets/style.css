@@ -934,6 +934,31 @@ main .author-main .alphabet-sort .alphabet{
 /* *****X******* Join page *******X********* */
 
 
+/* ************* Admin page ***************** */
+
+#admin .welcome{
+    background-color: rgba(0, 0, 200, 0.3);
+    height: 3rem;
+    padding: 2px auto;
+    overflow: hidden;
+    display: inline-flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+    padding: .5rem .5rem;
+}
+
+#admin .welcome *{
+    margin: 0;
+}
+
+#admin .welcome .right{
+    margin: .5rem 1rem;
+}
+
+/* *****X******* Admin page *******X********* */
+
+
 
 /* ************* MEDIAQUERIES ***************** */
 

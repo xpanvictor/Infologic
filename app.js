@@ -5,9 +5,11 @@ var expresslayout     = require('express-ejs-layouts');
 var cookieParser      = require('cookie-parser');
 var logger            = require('morgan');
 var mongoose          = require('mongoose');
-const passport        = require('passport');
-const localStrategy   = require('passport-local').Strategy;
+const session         = require('express-session');
+const flash           = require('express-flash');
 const app = express();
+
+const initializepassport = require('./passportConfig');
 
 mongoose.connect('mongodb://localhost:27017/blog', { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true });
 
@@ -24,11 +26,13 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(expresslayout);
+app.use(flash);
 
 var blogRouter = require('./routes/blog');
 var sectionRouter = require('./routes/section');
 var userRouter = require('./routes/user');
 var authorRouter = require('./routes/author');
+const passport = require('passport');
 
 app.use('/', blogRouter);
 app.use('/users', userRouter);

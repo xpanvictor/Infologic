@@ -148,6 +148,16 @@ function toggleSource() {
   }
 }
 
+// Date and time functionality
+var dt = document.querySelector('#dt');
+if (dt) {
+  setInterval(() => {
+    var dt = document.querySelector('#dt');
+    const present = new Date();
+    dt.innerHTML = present;
+  }, 5000)
+}
+
 //  The login/register transition functionality
     // Buttons definitions
     const regbtn = document.querySelector('#regbtn');
@@ -168,8 +178,10 @@ function toggleSource() {
       logbtn.classList.add('highlight');
       regbtn.classList.remove('highlight');
     }
-    // Events handlers
-    regbtn.addEventListener('click', regopen);
-    logbtn.addEventListener('click', logopen);
+    if (regbtn != null){
+      // Events handlers
+      regbtn.addEventListener('click', regopen);
+      logbtn.addEventListener('click', logopen);
+    }
     
 // End of functionality

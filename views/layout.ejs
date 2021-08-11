@@ -25,37 +25,39 @@
         <main>
             <!-- ----------- Site Title ------------ -->
 
-        <section class="site-title">
+        <% if (title != 'Admin') { %>
+            <section class="site-title">
 
-            <% if (title === "error") { %>
-                <%- include('./partials/err.ejs') %> 
-            <% } %>
-
-            <% if (title === "Home page") { %>
-                <%- include('./partials/sitebjoin.ejs') %> 
-            <% } %>
-
-            <% if (title === "Authors page") { %>
-                <%- include('./partials/authorsdisp.ejs') %> 
-            <% } %>
-
-            <% if (title === "Make blog") { %>
-                <%- include('./partials/writedisp.ejs') %> 
-            <% } %>
-
-            <% if (title === "Register/Login page" ) { %>
-                <%- include('./partials/userjoin.ejs') %> 
-            <% }else{ %>
+                <% if (title === "error") { %>
+                    <%- include('./partials/err.ejs') %> 
+                <% } %>
+    
+                <% if (title === "Home page") { %>
+                    <%- include('./partials/sitebjoin.ejs') %> 
+                <% } %>
+    
+                <% if (title === "Authors page") { %>
+                    <%- include('./partials/authorsdisp.ejs') %> 
+                <% } %>
+    
+                <% if (title === "Make blog") { %>
+                    <%- include('./partials/writedisp.ejs') %> 
+                <% } %>
+    
+                <% if (title === "Register/Login page" ) { %>
+                    <%- include('./partials/userjoin.ejs') %> 
+                <% }else{ %>
+                    
+                <% } %>
+    
+                <%- include('./partials/about') %> 
+    
+                <%- include('./partials/contact') %>  
+    
+                <%- include('./partials/discussion') %> 
                 
-            <% } %>
-
-            <%- include('./partials/about') %> 
-
-            <%- include('./partials/contact') %>  
-
-            <%- include('./partials/discussion') %> 
-            
-        </section>
+            </section>
+        <% } %>
  
 
         <!-- ------/---- Site Title -------/---- -->
