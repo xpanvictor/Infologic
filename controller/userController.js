@@ -5,7 +5,6 @@ const Section = require('../models/section');
 const { body, validationResult} = require('express-validator');
 const { blog } = require('./blogController');
 const passport = require('passport');
-const localStrategy   = require('passport-local').Strategy;
 const bcrypt = require('bcrypt');
 
 exports.get_create = function(req, res, next) {
@@ -45,7 +44,7 @@ exports.post_create = [
                         user.save(function(err){
                         if (err) {return next(err); }
                         // Show response if saved
-                        res.redirect('/blogs');
+                        res.redirect('/users');
                         console.log(user)
                         });
                     }

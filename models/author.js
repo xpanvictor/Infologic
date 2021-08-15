@@ -1,10 +1,11 @@
 const mongoose = require('mongoose');
 
 const authorSchema = new mongoose.Schema({
+  nickname: {type: String},
   me: {type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true},
   author_date: {type: Date, default: Date.now},
-  preferences: [{type: mongoose.Schema.Types.ObjectId, ref: 'Section'}],
-  description: {type: String, required: true}
+  preferences: [{type: String}],
+  bio: {type: String}
 });
 
 authorSchema
@@ -16,10 +17,10 @@ authorSchema
   return days + ' days';
 });
 
-articleSchema
+authorSchema
 .virtual('url')
 .get(function(){
     return 'users/author' + this.id;
 });
 
-module.exports('Author', authorSchema);
+module.exports = mongoose.model('Author', authorSchema);

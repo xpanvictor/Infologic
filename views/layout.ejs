@@ -31,6 +31,10 @@
                 <% if (title === "error") { %>
                     <%- include('./partials/err.ejs') %> 
                 <% } %>
+
+                <% if (title == "Become author") { %>
+                    <%- include('./partials/beauthor.ejs') %> 
+                <% } %>
     
                 <% if (title === "Home page") { %>
                     <%- include('./partials/sitebjoin.ejs') %> 

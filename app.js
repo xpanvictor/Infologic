@@ -1,3 +1,9 @@
+
+if (process.env.NODE_ENV !== 'production'){
+  require('dotenv').config()
+}
+
+
 var createError       = require('http-errors');
 var express           = require('express');
 var path              = require('path');
@@ -5,11 +11,13 @@ var expresslayout     = require('express-ejs-layouts');
 var cookieParser      = require('cookie-parser');
 var logger            = require('morgan');
 var mongoose          = require('mongoose');
+const passport        = require('passport');
 const session         = require('express-session');
 const flash           = require('express-flash');
 const app = express();
 
 const initializepassport = require('./passportConfig');
+initializepassport(passport);
 
 mongoose.connect('mongodb://localhost:27017/blog', { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true });
 
@@ -26,13 +34,22 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(expresslayout);
-app.use(flash);
+
+// Passport
+app.use(flash());
+app.use(session({
+  secret: process.env.SESSION_SECRET,
+  resave: true,
+  saveUninitialized: true
+}));
+app.use(passport.initialize());
+app.use(passport.session());
 
 var blogRouter = require('./routes/blog');
 var sectionRouter = require('./routes/section');
 var userRouter = require('./routes/user');
 var authorRouter = require('./routes/author');
-const passport = require('passport');
+
 
 app.use('/', blogRouter);
 app.use('/users', userRouter);

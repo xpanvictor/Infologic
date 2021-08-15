@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+const prbac = require('../prbac');
 
 var blog_controller = require('../controller/blogController');
 
@@ -15,7 +16,7 @@ router.get('/findex', blog_controller.blog_findex);
 router.get('/blogs', blog_controller.blog_list);
 
 /* GET blog create page. */
-router.get('/blog/create', blog_controller.blog_write_get);
+router.get('/blog/create', prbac.checkAuthor, blog_controller.blog_write_get);
 
 /* POST blog create page. */
 router.post('/blog/create', blog_controller.blog_write_post);

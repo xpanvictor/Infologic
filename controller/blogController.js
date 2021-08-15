@@ -3,11 +3,24 @@ const mongoose = require('mongoose');
 const Blog = require('../models/article');
 const Section = require('../models/section');
 const { body, validationResult} = require('express-validator');
+const Author = require('../models/author');
+
 
 // Get request to create blog
-exports.blog_write_get = function(req, res){
-  res.render('write', {title: 'Make blog', name: 'Admin'});
+exports.blog_write_get = function(req, res, next){
+  async.parallel({
+    author: function (callback) {
+      Author.findOne({me: req.user._id})
+        .populate('me')
+        .exec(callback)
+    }
+  }, function (err, result){
+      if (err) {return next(err)}
+      // Render 
+      res.render('write', {title: 'Make blog', name: result.author.nickname});
+  })
 };
+
 //Post request to create blog
 exports.blog_write_post = [
   body('title').trim().isLength({ min: 1 }).escape().withMessage('Title must be specified.'),
@@ -20,6 +33,7 @@ exports.blog_write_post = [
     // Create a blog object
     var blog = new Blog({
     title: req.body.title,
+    author: req.user._id,
     story: req.body.story,
     description: req.body.rawstory,
     visible: req.body.visible,

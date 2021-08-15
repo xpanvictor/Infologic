@@ -1,5 +1,5 @@
-<% if (locals.message) { %>
-    <%= message %> 
+<% if (locals.messages.error) { %>
+    <h1> <%= locals.messages.error %>  </h1>
 <% }else{ %>
     <h1>Hello World</h1>
 <% } %>

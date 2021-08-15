@@ -11,13 +11,24 @@
 		.edits button i{
 			font-size: 100%;
 		}
-		.edits button{
-			width: 50% !important;
+		#write .edits button{
+			margin: 4px;
+			height: fit-content !important;
+			width: fit-content !important;
 		}
 		#write .form-master{
 			display: flex;
 			flex-direction: column;
 			width: 100%;
+		}
+		#write .form-master .form-group{
+			flex-wrap: nowrap;
+			justify-content: flex-start;
+			margin-left: 1px;
+			width: 100%;
+		}
+		#write .form-master .btn-group{
+			display: inline-block;
 		}
 		#textField {
 			-moz-appearance: textfield-multiline;
@@ -26,6 +37,7 @@
 			font: medium -moz-fixed;
 			font: -webkit-small-control;
 			height: 15rem;
+			font-size: 1rem;
 			overflow: auto;
 			padding: 2px;
 			resize: both;
