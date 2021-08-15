@@ -1,8 +1,5 @@
 
-if (process.env.NODE_ENV !== 'production'){
-  require('dotenv').config()
-}
-
+require('dotenv').config()
 
 var createError       = require('http-errors');
 var express           = require('express');
@@ -19,7 +16,7 @@ const app = express();
 const initializepassport = require('./passportConfig');
 initializepassport(passport);
 
-mongoose.connect('mongodb://localhost:27017/blog', { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true });
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/blog', { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true });
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

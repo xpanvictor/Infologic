@@ -59,3 +59,7 @@ exports.post_login = passport.authenticate('local', {
                 failureRedirect: '/users/',
                 failureFlash: true
             })
+
+exports.get_user = function (req, res, next) {
+    res.render('userpage', {title: 'User', user: req.user})
+}

@@ -13,17 +13,10 @@ exports.get_admin = function(req, res, next) {
 }
 
 exports.get_authorid = function(req, res, next) {
-    async.parallel({
-        author: function(callback){
-            Author.findOne({me: req.params.id})
-                .populate('me')
-                .exec(callback)
-        }
-    }, function(err, result){
-        if (err){return next(err);}
-        //Successful then render
-        res.send(result.author)
-    })
+    Author.findOne({me: req.user._id}).populate('me')
+        .exec(function(err, author){
+            res.send(author) 
+        })
 }
 
 exports.get_createAuthor = function(req, res, next){

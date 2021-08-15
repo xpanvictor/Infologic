@@ -1,4 +1,6 @@
 const mongoose = require('mongoose');
+const { populate } = require('./user');
+const User = require('./user');
 
 const authorSchema = new mongoose.Schema({
   nickname: {type: String},
