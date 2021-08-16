@@ -1,5 +1,8 @@
 
-require('dotenv').config()
+if (process.env.NODE_ENV !== 'production'){
+  require('dotenv').config()
+}
+
 
 var createError       = require('http-errors');
 var express           = require('express');
@@ -16,7 +19,7 @@ const app = express();
 const initializepassport = require('./passportConfig');
 initializepassport(passport);
 
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/blog', { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true });
+mongoose.connect('mongodb+srv://Admin:PisOZpf0xuesY5Fs@cluster0.9zycx.mongodb.net/blog?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true });
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
