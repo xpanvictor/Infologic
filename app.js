@@ -19,7 +19,9 @@ const app = express();
 const initializepassport = require('./passportConfig');
 initializepassport(passport);
 
-mongoose.connect('mongodb+srv://Admin:PisOZpf0xuesY5Fs@cluster0.9zycx.mongodb.net/blog?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true });
+// mongoose.connect('mongodb+srv://Admin:PisOZpf0xuesY5Fs@cluster0.9zycx.mongodb.net/blog?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true });
+// Mongoose local conection
+mongoose.connect('mongodb://localhost:27017/blog?readPreference=primary&appname=MongoDB%20Compass&directConnection=true&ssl=false', { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true });
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

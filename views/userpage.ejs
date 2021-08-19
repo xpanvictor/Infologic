@@ -1,1 +1,37 @@
-<h1>Hello world</h1>
+
+<main>
+    <section class="user-major" data-aos="flip-right" data-aos-delay="50" data-aos-duration="1000">
+        <div class="show-btn">
+            <button><i class="fas fa-user"></i></button>
+            <button><i class="fas fa-save"></i></button>
+            <button><i class="fas fa-bell"></i></button>
+            <button>Mentions</button>
+        </div>
+        <div class="profile">
+            <form action="">
+               <div class="form-element">
+                <label for="first_name">First name:</label>
+                <input type="text" name="first_name" placeholder="<%= user.first_name %> ">
+               </div>
+               <div class="form-element">
+                <label for="last_name">Last name:</label>
+                <input type="text" name="last_name" placeholder="<%= user.last_name %> ">
+               </div>
+               <div class="form-element">
+                <label for="Birthdate">Birth:</label>
+                <input type="date" name="birthdate" placeholder="<%= user.birthdate %> ">
+               </div>
+               <div class="form-element">
+                <label for="contact">Whatsapp:</label>
+                <input type="text" name="contact" placeholder="<%= user.contact %> ">
+               </div>
+               <div class="form-element">
+                <label for="bio">Bio:</label>
+                <input type="text" name="bio" placeholder="<%= user.bio %> ">
+               </div>
+    
+               <input type="submit" value="Submit">
+            </form>
+        </div>
+    </section>
+</main>
