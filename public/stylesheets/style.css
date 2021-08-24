@@ -396,12 +396,13 @@ main .contact{
     position: absolute;
     left: 30%;
     top: 10%;
-    width: 60%;
-    height: 70%;
+    width: 30%;
+    height: 40%;
     background-color: rgba(127, 255, 212, 0.4);
     z-index: 5999;
     border: 1px solid black;
     border-radius: 3px;
+    box-shadow: 4px 4px grey;
     padding: 10px;
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -409,6 +410,12 @@ main .contact{
 }
 main .contact .conl{
     background-color: bisque;
+    text-align: center;
+    margin: auto 0;
+    cursor: pointer;
+    font-size: 5rem;
+    border: 1px solid grey;
+    border-radius: 24%;
 }
 /* *****X**** Main contact ****X****** */ 
 
@@ -636,7 +643,7 @@ main .major #posts{
 }
 main .major .post{
     /* opacity: 1; */
-    margin: 10px;
+    margin: 5px;
     height: 81vh;
     width: 95%;
     border-bottom: 1px solid white;
@@ -765,6 +772,7 @@ main .major aside .category-list .llink{
 
 footer.footer{
     height: 100vh;
+    width: 100%;
     background: black;
     position: relative;
 }
@@ -776,7 +784,7 @@ footer.footer{
 }
 footer.footer .container{
     display: grid;
-    margin-left: 1rem;
+    margin: 0 0 0 1rem;
     grid-template-columns: 1fr 1fr 1fr;
     color: white;
 }
@@ -894,7 +902,7 @@ main .author-main{
     width: 100%;
     margin: .3% 0 0;
     padding: 0 2rem 0 2rem;
-    overflow-y: scroll;
+    overflow-y: auto;
 }
 main .author-main h2{
     margin-left: 3rem;
@@ -1116,9 +1124,7 @@ main .author-main .alphabet-sort .alphabet{
 /* ********* Viewport less than 960 ******* */
 
 @media only screen and (max-width: 960px){
-    footer.footer{
-        height: fit-content !important;
-    }
+    
     main .major aside .trending .thumb .post-title button{
         font-size: .5rem;
     }
@@ -1137,7 +1143,7 @@ main .author-main .alphabet-sort .alphabet{
         display: flex;
         height: fit-content;
         width: auto;
-        padding: 1.9rem;
+        padding: .4rem;
         flex-direction: column;
     }
     .navv .nav-items, .navv .nav-menu{
@@ -1155,6 +1161,7 @@ main .author-main .alphabet-sort .alphabet{
     }
     footer.footer{
         height: fit-content !important;
+        margin-bottom: 0;
     }
     footer.footer .container{
         height: auto;
@@ -1181,7 +1188,7 @@ main .author-main .alphabet-sort .alphabet{
     }
     main .major aside .trending .thumb .post-title .ptd{
         height: 16rem;
-        font-size: 1.3rem;
+        font-size: 1rem;
         overflow-y: hidden;
         background-color: rgba(23, 20, 20, 0.4);
     }
