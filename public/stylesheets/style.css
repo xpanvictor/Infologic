@@ -218,7 +218,7 @@ button{
 .navv .toggle-collapse .toggle-icons{
     display: flex;
     justify-content: flex-end;
-    padding: 1.5rem 0;
+    padding: 1.3rem 0;
     font-size: 1.4rem;
     color: var(--text-gray);
 }
@@ -898,10 +898,11 @@ main .user-major label:hover, main .user-major input:hover{
     height: 100vh;
 }
 main .author-main{
-    height: 85vh;
+    height: 40vh;
+    background-color: #dd7d9a;
     width: 100%;
     margin: .3% 0 0;
-    padding: 0 2rem 0 2rem;
+    padding: 0 1% 0 1%;
     overflow-y: auto;
 }
 main .author-main h2{
@@ -909,27 +910,30 @@ main .author-main h2{
 }
 main .author-main .top-five{
     width: 100%;
-    text-align: center;
+    padding: .5rem 1px .1px;
+    display: flex;
+    flex-direction: row;
+    overflow: auto;
 }
 main .icon{
     display: inline-block;
-    width: 13rem;
-    height: 10rem;
+    width: 40%;
+    height: 25%;
     text-align: center;
 }
 main .icon .icon-img{
     display: inline-block;
     border: 1px solid red;
     border-radius: 100%;
-    font-size: 5.3rem;
+    font-size: 4rem;
     height: 60%;
-    width: 8rem;
+    width: 90%;
     text-align: center;
     padding: .1rem 0 .1rem;
     margin: 0 auto 0;
 }
 main .icon .author-name{
-    margin-top: -5px;
+    margin-top: -8px;
     display: inline-block;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     font-weight: 600;
