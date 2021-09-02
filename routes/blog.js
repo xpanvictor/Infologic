@@ -10,7 +10,7 @@ router.get('/', function(req, res, next) {
 });
 
 /* GET home findex page. */
-router.get('/findex', blog_controller.blog_findex);
+router.get('/blogs/discover', blog_controller.discover);
 
 /* GET all page. */
 router.get('/blogs', blog_controller.blog_list);

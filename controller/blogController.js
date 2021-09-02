@@ -101,9 +101,19 @@ exports.blog_list = function(req, res, next){
   )
 }
 
-// Get request to findex
-exports.blog_findex = function(req, res, next){
-  res.render('findex', {title:"findex"})
+// Get request to discover
+exports.discover = function(req, res, next){
+  async.parallel({
+    RR: function(callback){
+      Blog.find()
+      .sort({dateAdded: -1})
+      .exec(callback)
+    }
+  },
+    function(err, result){
+      if (err){ return(next(err)) }
+      res.render('discover', {title:"Discover", RR: result.RR})
+    })
 }
 
 // Get request to particular blog

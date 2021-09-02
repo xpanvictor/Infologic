@@ -51,12 +51,13 @@ var blogRouter = require('./routes/blog');
 var sectionRouter = require('./routes/section');
 var userRouter = require('./routes/user');
 var authorRouter = require('./routes/author');
-
+var apihandler = require('./routes/apihandler');
 
 app.use('/', blogRouter);
 app.use('/users', userRouter);
 app.use('/authors', authorRouter);
 app.use('/sections', sectionRouter);
+app.use('/api', apihandler);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

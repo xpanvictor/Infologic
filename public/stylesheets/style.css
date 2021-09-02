@@ -63,6 +63,62 @@ h1{
     display: block;
 }
 
+.boxtopic{
+    width: fit-content;
+    margin: 1px 15px 1px;
+}
+.boxtopic h1{
+    font-family: 'Times New Roman', Times, serif;
+    font-variant: small-caps;
+    margin-bottom: 3px;
+    letter-spacing: 10px;
+}
+hr.underhr{
+    background-color: #4caf50;
+    border-left: 5px solid blue;
+    height: .3rem;
+    width: 100%;
+}
+hr.unitend{
+    width: 20%;
+    border: 10px dotted blue;
+    border-style: none none dotted;
+    border-width: 15px;
+    margin: 40px auto 20px;
+}
+
+.custom-select{
+    position: relative;
+    margin: 0 6px 4px;
+    width: fit-content;
+    height: 100%;
+}
+.custom-select select{
+    border: 0;
+    font-size: 1.5rem;
+    color: white;
+    padding: .5rem 4rem .5rem 2rem;
+    background-color: rgb(32, 29, 29);
+}
+.custom-select .select-arrow{
+    position: absolute;
+    background-color: black;
+    display: block;
+    width: 1.5rem;
+    height: 100%;
+    display: block;
+    pointer-events: none;
+    top: 0;
+    right: 0;
+    color: white;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.3rem;
+    border: 0;
+}
+
+
 .text-white{
     font-size: initial;
     font-family: sans-serif;
@@ -151,6 +207,47 @@ button{
     background-color: rgb(197, 41, 202);
     box-shadow: 3px 3px black;
 }
+
+/* ************* Pagination ***************** */
+ .list{
+    background-color: white;
+    height: fit-content;
+    color: #608D9E;
+    padding: 1.5rem .5rem;
+}
+ .listitem{
+    width: 100%;
+    margin: 0 0 1.5rem;
+    text-align: center;
+    font-size: 1.5rem;
+    font-family: cursive;
+    border-bottom: 0.1rem solid #9E608D;
+}
+ .pages{
+    margin: .5rem auto;
+    width: 100%;
+    max-width: fit-content;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    color: #40493A;
+}
+.number{
+    background-color: #00A887;
+    font-size: 2rem;
+    width: 1.5rem;
+    cursor: pointer;
+    margin-right: 8px;
+    text-align: center;
+    border: 1px solid;
+    border-radius: 10%;
+    transition: all 0.1s ease-in-out;
+}
+ #pages .active{
+    background-color: #d8eef0;
+    box-shadow: 0 2px 2px inset grey;
+}
+/* *****X******* Pagination *******X********* */
 
 /* *******X******* Global classses *********X*********** */
 
@@ -892,11 +989,94 @@ main .user-major label:hover, main .user-major input:hover{
 
 /* *****X******* User page *******X********* */
 
-/* **********Author page************ */
+/* **********Discover page************ */
 
-.author-home{
-    height: 100vh;
+
+#discover .site-title{
+    display: block;
+    padding: auto;
 }
+#discover .site-title .latest{
+    width: 100%;
+    height: 100%;
+    padding-top: 3rem;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+#discover .site-title .latest ul{
+    width: 100%;
+    display: block;
+    /* padding: 0; */
+}
+#discover .site-title .latest li{
+    display: inline-block;
+    margin: 0 0.3rem;
+    background-color: white;
+    border: 1px solid black;
+    font-family: Arial, Helvetica, sans-serif;
+    text-decoration:underline;
+    text-decoration-color: #104f55;
+    text-decoration-thickness: .2rem;
+}
+.unit{
+    height: 100%;
+    width: 100%;
+}
+.blogbox{
+    width: 98%;
+    height: 45vh;
+    display: flex;
+    justify-content: start;
+    margin: 0 0 2px 4px;
+    flex-direction: row;
+    padding: 4px;
+    background-color: rgba(211, 137, 205, 0.3);
+    border-bottom: 1px solid black;
+    border-bottom-left-radius: 12px;
+    box-shadow: 4px 0 inset #D826D8;
+}
+.blogbox .blogimg{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    width: 50%;
+    height: 100%;
+}
+.blogbox .blogimg .pic{
+    height: 70%;
+    width: 90%;
+    background: #608e9e36;
+    text-align: center;
+}
+.blogbox .blogimg img{
+    height: 100%;
+    margin-right: 5px;
+    width: 70%;
+}
+.blogbox .btext{
+    width: 50%;
+    height: 100%;
+}
+.blogbox .blogtext{
+    height: 95%;
+    overflow-y: hidden;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.blogbox .blogtext h1{
+    font-size: 1.5rem;
+    margin: .4rem 0;
+}
+.blogbox .blogtext p{
+    font-size: 1.05rem;
+}
+.blogbox a{
+    color: blue;
+    font-weight: 800;
+    font-size: 1.05rem;
+    text-decoration: none;
+    font-style: oblique;
+}
+
 main .author-main{
     height: 40vh;
     background-color: #dd7d9a;
@@ -1244,6 +1424,55 @@ main .author-main .alphabet-sort .alphabet{
         grid-template-columns: 1fr 1fr !important;
     }
 
+    /* **********Discover page************ */
+
+
+    #discover .site-title .latest li{
+        display: inline-block;
+        margin: 0 0.3rem;
+        background-color: white;
+        border: 1px solid black;
+        font-family: Arial, Helvetica, sans-serif;
+        text-decoration:underline;
+        text-decoration-color: #104f55;
+        text-decoration-thickness: .2rem;
+    }
+    .blogbox{
+        width: 100%;
+        height: 75%;
+        display: flex;
+        justify-content: space-around;
+        flex-direction: column;
+    }
+    .blogbox .blogimg{
+        display: flex;
+        flex-direction: row;
+        justify-content: start;
+        align-items: center;
+        width: 100%;
+        height: 50%;
+    }
+    .blogbox .blogimg .pic{
+        height: 100%;
+        width: 50%;
+    }
+    .blogbox .blogimg img{
+        width: 100%;
+    }
+    .blogbox .btext{
+        height: 50%;
+        overflow-y: hidden;
+        width: 98%;
+    }
+    .blogbox .blogtext{
+        height: 85%;
+        overflow-y: hidden;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+    .blogbox .blogtext p{
+        margin-top: 0.2rem;
+    }
+
     /* ********** Discussuion tab 480 *********** */
  
     main .talk{
@@ -1398,6 +1627,24 @@ main .author-main .alphabet-sort .alphabet{
 /* ****************View port less than 276px ******** */
 
 @media only screen and (max-width: 276px){
+    /* Discover page */
+    #discover .site-title .latest ul{
+        padding: 0;
+    }
+    .blogbox .blogimg{
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        align-items: center;
+        width: 100%;
+        height: 50%;
+    }
+    .blogbox .blogimg h1{
+        margin: 0.1rem;
+    }
+    .blogbox .blogtext h1{
+        font-size: 1rem;
+    }
     main .major aside .trending .set{
         grid-template-columns: 1fr;
     }
