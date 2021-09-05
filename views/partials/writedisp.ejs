@@ -23,7 +23,16 @@
     </div>
     
     <div class="w-100">
-        <form class="form-master w-100 pl-2 pr-2 pb-4" method="POST" action="" onsubmit="this.story.value=textField.innerHTML;">
+        <form class="form-master w-100 pl-2 pr-2 pb-4" method="POST" action="" 
+        onsubmit="this.story.value=textField.innerHTML;
+                    let rawstory = document.querySelector('#rawstory').value
+                    if (rawstory.length == 0){
+                        this.rawstory.value = textField.textContent.slice(0, 500);
+                    }
+                    else{
+                        this.rawstory.value = rawstory;
+                    }
+                ">
             <input type="hidden" name="story" >
             <div class="form-group">
                 <label for="title">Title</label>
@@ -31,6 +40,10 @@
                 value="<%= ('undefined' === typeof(blog) ? '' : blog.title) %>">
             </div>
         
+            <div class="form-group">
+                <legend>Description: <span class="text-muted">Leave empty if no description. Add tags using #tag</span></legend>
+                <textarea type="text" maxlength="500" class="form-control w-75" name="rawstory" id="rawstory"></textarea>
+            </div>
         
             <div class="form-group">
                 <legend>Body</legend>
@@ -117,8 +130,11 @@
                     <fieldset>Choose section</fieldset>
                     <select class="custom-select w-50" name="section">
                           <option value="Other" selected>Other</option>
-                          <option value="Science">Science</option>
                           <option value="Arts">Arts</option>
+                          <option value="Science">Science</option>
+                          <option value="Politics">Politics</option>
+                          <option value="Music">Music</option>
+                          <option value="Movies">Movies</option>
                           <option value="Entertainment">Entertainment</option>
                     </select>
                 </div>

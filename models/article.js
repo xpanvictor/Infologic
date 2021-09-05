@@ -6,6 +6,7 @@ const articleSchema = new mongoose.Schema({
     title: {type: String, required: true},
     dateAdded: {type: Date, default: Date.now},
     story: {type: String, required: true},
+    description: {type: String, required: true},
     section: {type: String},
     visible: {type: Boolean, default: false, required: true},
     author: {type: mongoose.Schema.Types.ObjectId, ref: 'Author'},
@@ -17,17 +18,17 @@ const articleSchema = new mongoose.Schema({
 
 articleSchema.pre('validate', function(next){
     if (this.title){
-        this.slug = "blog/" + slugify(this.title, {lower: true, strict: true});
+        this.slug = slugify(this.title, {lower: true, strict: true});
     }
     next();
 });
 
-
-articleSchema
-.virtual('description')
-.get(function(){ 
-    return this.story.slice(0, 50);
-})
+articleSchema.pre('validate', function(next){
+    if (typeof(this.description) == 'undefined'){
+        this.description = this.story.slice(0, 200);
+    }
+    next();
+});
 
 articleSchema
 .virtual('safe')
@@ -45,7 +46,9 @@ articleSchema
 articleSchema
 .virtual('url')
 .get(function(){
-    return 'blog/' + this.slug;
+    return '/blogs/blog/'+this.slug;
 });
+
+articleSchema.set('toJSON', {virtuals: true})
 
 module.exports = mongoose.model('Article', articleSchema);

@@ -22,6 +22,6 @@ router.get('/blog/create', prbac.checkAuthor, blog_controller.blog_write_get);
 router.post('/blog/create', blog_controller.blog_write_post);
 
 /* GET specific blog page. */
-router.get('/blog/:id', blog_controller.blog);
+router.get('/blogs/blog/:id', blog_controller.blog);
 
 module.exports = router;

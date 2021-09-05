@@ -209,20 +209,6 @@ button{
 }
 
 /* ************* Pagination ***************** */
- .list{
-    background-color: white;
-    height: fit-content;
-    color: #608D9E;
-    padding: 1.5rem .5rem;
-}
- .listitem{
-    width: 100%;
-    margin: 0 0 1.5rem;
-    text-align: center;
-    font-size: 1.5rem;
-    font-family: cursive;
-    border-bottom: 0.1rem solid #9E608D;
-}
  .pages{
     margin: .5rem auto;
     width: 100%;
@@ -357,7 +343,7 @@ main .site-title{
     position: relative;
 }
 #write .site-title{
-    overflow: auto;
+    overflow-y: auto;
     padding: 1rem;
 }
 
@@ -912,6 +898,7 @@ footer.footer .container .newsletter .form-element input{
     font-family: Arial, Helvetica, sans-serif;
     font-size: 1rem;
     width: 74%;
+    color: white;
 }
 footer.footer .container i{
     background: var(--ash);
@@ -1067,6 +1054,7 @@ main .user-major label:hover, main .user-major input:hover{
     margin: .4rem 0;
 }
 .blogbox .blogtext p{
+    overflow: hidden;
     font-size: 1.05rem;
 }
 .blogbox a{

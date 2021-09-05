@@ -119,10 +119,10 @@ exports.discover = function(req, res, next){
 // Get request to particular blog
 exports.blog = function(req, res, next){
   
-  Blog.findOne({ 'slug' : "blog/"+req.params.id})
+  Blog.findOne({ 'slug' : req.params.id})
   .exec(function(err, result){
     if (err){ return next(err)};
     //Successful then render
-    res.render('page', {blog: result})
+    res.render('page', {title: result.title, blog: result})
   })
 }
