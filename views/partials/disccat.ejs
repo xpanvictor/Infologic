@@ -1,29 +1,27 @@
 
-<section class="latest">
+<section class="unit latest">
     <div class="boxtopic">
         <h1>Latest</h1><hr class="underhr" />
     </div>
 
     <div class="blogbox">
         <div class="blogimg">
-            <div class="pic"><img src="../images/blog.png" alt="Blog image"></div>
-            <div class="blogauthor">
-                <h1>Author</h1>
-                <h1>Date</h1>
+            <div class="pic">
+                <img src="../images/blog.png" alt="Blog image">
+            </div>
+            <div class="blogauthor" style="color: #786D6D;">
+                <h1><%= RR[0].author %> </h1>
+                <h1><%= RR[0].dateAddedF %> </h1>
             </div>
         </div>
         <div class="btext">
             <div class="blogtext">
-                <h1>Blog topic of the day</h1>
+                <h1><%= RR[0].title %> </h1>
                 <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Voluptatibus natus placeat error non culpa, iusto, consequunturi? 
-                    Voluptates fugiat ullam animi! Placeat error non culpa, iusto, consequunturi? 
-                    Voluptates fugiat ullam animi! Placeat error non culpa, iusto, consequunturi? 
-                    Voluptates fugiat ullam animi! 
+                    <%= RR[0].description %>  
                 </p>
             </div>
-            <a href="#">...Read more</a>
+            <a href="<%= RR[0].url %> ">...Read more</a>
         </div>
     </div>
 </section>

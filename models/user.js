@@ -26,6 +26,12 @@ userSchema
 });
 
 userSchema
+.virtual('full_name')
+.get(function(){
+  return (this.first_name + ' ' + this.last_name);
+})
+
+userSchema
 .virtual('join_duration')
 .get(function(){
   d = new Date;
@@ -40,4 +46,5 @@ userSchema
     return 'users/member/' + this.id;
 });
 
+userSchema.set('toJSON', {virtuals: true})
 module.exports = mongoose.model('User', userSchema)

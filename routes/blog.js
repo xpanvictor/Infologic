@@ -24,4 +24,10 @@ router.post('/blog/create', blog_controller.blog_write_post);
 /* GET specific blog page. */
 router.get('/blogs/blog/:id', blog_controller.blog);
 
+/* POST comment to secific blog page. */
+router.post('/blogs/blog/:id/comment', blog_controller.blog_comment);
+
+/* POST like to secific blog page. */
+router.post('/blogs/blog/:id/like', blog_controller.blog_like);
+
 module.exports = router;

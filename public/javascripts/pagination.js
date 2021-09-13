@@ -1,7 +1,7 @@
 
 
 var items = []
-const discover = fetch('http://localhost:5000/api/blogs')
+const discover = fetch('/api/blogs')
 .then(res => res.json())
 .then(values => calltopage(values, 'Arts'));
 
@@ -50,6 +50,8 @@ function displaylist(currentpage, unit){
         if (point+1){
             let blogbox = document.createElement('div');
             blogbox.classList.add('blogbox')
+            blogbox.setAttribute('data-aos', 'fade-up')
+            blogbox.setAttribute('data-aos-duration', '1000')
             let blogimg = document.createElement('div');
             blogimg.classList.add('blogimg')
             let pic = document.createElement('div');
@@ -71,8 +73,8 @@ function displaylist(currentpage, unit){
             author.innerHTML = shadow[point]['author'];
             date.innerHTML = shadow[point]['dateAddedF'];
             blogauthor.style.color = "#786D6D";
-            h1.innerHTML = shadow[point]['title']
-            p.innerHTML = shadow[point]['description']
+            h1.innerHTML = shadow[point]['title'];
+            p.innerHTML = shadow[point]['description'];
             a.href = shadow[point]['url'];
             a.innerHTML = "...Read more";
             blogbox.style.paddingBottom = "10px";

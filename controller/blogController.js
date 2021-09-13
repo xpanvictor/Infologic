@@ -120,9 +120,35 @@ exports.discover = function(req, res, next){
 exports.blog = function(req, res, next){
   
   Blog.findOne({ 'slug' : req.params.id})
+  .populate("author")
   .exec(function(err, result){
     if (err){ return next(err)};
     //Successful then render
-    res.render('page', {title: result.title, blog: result})
+    // console.log(result)
+    // res.send(result)
+    res.render('page', {layout: 'page' ,title: result.title, blog: result})
+  })
+}
+
+//Post comment to blog post with id
+exports.blog_comment = async function(req, res, next){
+  let comment = {
+    name: (req.user)? req.user.full_name : 'Anonymous',
+    body: req.body.commentText
+  }
+  await Blog.findOneAndUpdate({'slug': req.params.id}, {$push: {comments: comment}})
+  .exec(function(err, result){
+    if (err){return next(err)}
+    res.redirect("back")
+  })
+}
+
+//Post like to blog post with id
+exports.blog_like = async function(req, res, next){
+  await Blog.findOneAndUpdate({'slug': req.params.id}, {likes: req.body.like}, {new: true})
+  .exec(function(err, result){
+    if (result){
+      res.json(result.likes)
+    }
   })
 }

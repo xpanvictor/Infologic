@@ -4,12 +4,105 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Font-Awesome Icons -->
+  <link rel="stylesheet" href="../node_modules/@fortawesome/fontawesome-free/css/all.css">
+  <!-- -------------- Owl carousel ---------------- --> 
+  <link rel="stylesheet" href="/stylesheets/owl.carousel.min.css">
+  <link rel="stylesheet" href="/stylesheets/owl.theme.default.min.css">
+  <!-- AOS library -->
+  <link rel="stylesheet" href="/stylesheets/aos-master/dist/aos.css">
+   <!-- Custom style -->
+  <link rel="stylesheet" href="/stylesheets/style.css">
   <title><%= blog.title %></title>
 </head>
-<body>
-  <div>
-    <h1><%= blog.title %></h1>
+<body id="ablog" class="">
+  <%- include('./partials/nav') %> 
+  <main>
+
+   <section>
+    <%- include('./partials/about') %> 
+    <%- include('./partials/contact') %>  
+    <%- include('./partials/discussion') %> 
+   </section>
+
+  <div id="blog">
+    <div class="blog-pic">
+      <img src="/images/blog.png" alt="" srcset="">
+    </div>
+    <div class="topic">
+      <h1><%= blog.title %></h1>
+    </div>
+    <div class="stopic">
+      <h3><%= blog.section %> </h3>
+      <h3><%= blog.dateAddedF %> </h3>
+    </div>
     <p><%- blog.story %></p>
+    <p><%= blog.author %> </p>
   </div>
+
+  <div class="like">
+    <h1 id="like"><%= blog.likes %> </h1>
+    <button onclick="liker('add')"><i class="fas fa-thumbs-up"></i></button>
+    <button onclick="liker('sub')"><i class="fas fa-thumbs-down"></i></button>
+  </div>
+
+  <section id="commentSection">
+    <hr>
+    <div class="boxtopic">
+      Comments (<%= blog.comments.length %>)
+      <hr class="underhr">
+    </div>
+    <section class="commentBoxS">
+      <form action="<%= blog.url %>/comment" id="commentBox" method="POST">
+        <textarea name="commentText" id="commentText" cols="20" rows="10" required>
+
+        </textarea>
+        <input type="submit" value="Submit" id="commentSubmit">
+      </form>
+    </section>
+    <section class="comments" id="comments">
+      <% if (blog.comments.length != 0) { %>
+        <% for (var comment of blog.comments.slice(0, blog.comments.length).reverse()) { %>
+          <div class="comment">
+            <hr class="cut">
+            <div class="commentUser">
+              <div class="commenterPic">
+                <img src="/images/user.svg" alt="">
+              </div>
+              <div class="commenterName">
+                <%= comment.name %> 
+              </div>
+            </div>
+            <div class="time font-dim"><%= comment.date %></div>
+            <div class="message">
+              <%= comment.body %> 
+            </div>
+          </div>
+        <% } %>
+      <% }else{ %>
+        Sorry, no comments yet
+      <% } %>
+      
+    </section>
+    <center>
+      <span id="showAllC"><i>Show all comments</i><button style="padding: 5px;height: fit-content;width: fit-content;" onclick="showAllComments()"><i class="fas fa-arrow-right"></i></button></span>
+    </center>  
+  </section>
+
+  </main>
+  <%- include('./partials/footer') %> 
+
+  <!-- Jquery -->
+  <script type="text/javascript" src="/javascripts/jquery-3.6.0.min.js"></script>
+  <!-- Aos js from aos-master folder in stylesheets folder -->
+  <script src="/stylesheets/aos-master/dist/aos.js"></script>
+  <!-- -------------- Owl carousel ---------------- --> 
+  <script src="/javascripts/owl.carousel.min.js"></script>
+  <!-- -------------- Font awesome ---------------- --> 
+  <script src="/javascripts/all.js"></script>
+  <!-- Custom JS -->
+  <script src="/javascripts/index.js"></script>
+  <!-- Custom JS -->
+  <script src="/javascripts/comment.js"></script>
 </body>
 </html>

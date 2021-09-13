@@ -52,6 +52,20 @@ a{
     align-items: center;
 }
 
+.like{
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    display: flex;
+    flex-direction: row;
+}
+.like button{
+    font-size: 3rem;
+}
+.like .liked{
+    color: blue;
+}
+
 ul{
     list-style-type: none;
 }
@@ -85,6 +99,10 @@ hr.unitend{
     border-style: none none dotted;
     border-width: 15px;
     margin: 40px auto 20px;
+}
+hr.cut{
+    width: 70%;
+    margin-right: auto;
 }
 
 .custom-select{
@@ -144,7 +162,7 @@ button{
     font-family: 'Courier New', Courier, monospace;
     font-size: 1.2rem;
     font-weight: 900;
-    color: rgb(20, 20, 20);
+    color: rgba(20, 20, 20, 0.829);
     margin: 0;
 }
 
@@ -343,7 +361,7 @@ main .site-title{
     position: relative;
 }
 #write .site-title{
-    overflow-y: auto;
+    height: fit-content;
     padding: 1rem;
 }
 
@@ -512,6 +530,7 @@ main .talk{
     z-index: 222;
     border: 2px solid black;
     border-top-left-radius: 20px;
+    margin: 0 40vh;
     border-bottom-right-radius: 10px;
     padding: 10px;
 }
@@ -985,7 +1004,7 @@ main .user-major label:hover, main .user-major input:hover{
 }
 #discover .site-title .latest{
     width: 100%;
-    height: 100%;
+    height: 80rem;
     padding-top: 3rem;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
@@ -1164,6 +1183,90 @@ main .author-main .alphabet-sort .alphabet{
     margin: 0 0 0 1rem;
 }
 
+/* ************* Individual Blog ***************** */
+
+#ablog{
+    background-color: hsl(284, 59%, 63%);
+    color: #0c021d;
+    font-weight: 600;
+    font-family: cursive, sans-serif, Verdana, Geneva, Tahoma, sans-serif;
+    font-size: large;
+}
+#ablog #blog{
+    padding: 8px;
+    width: 100%;
+}
+#ablog #blog .blog-pic{
+    height: 30vh;
+    width: 30%;
+}
+#ablog .blog-pic img{
+    float: right;
+    height: 100%;
+    width: 100%;
+    border-radius: 24px;
+}
+#ablog .topic{
+    margin-left: 5px;
+    padding-left: 4px;
+    border-left: 5px solid #A43209;
+}
+#ablog .stopic{
+    text-align: right;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #300f23dc;
+    border-right: 3px solid #A43209;
+    width: 95%;
+}
+#commentSection{
+    padding-left: 1rem;
+}
+#commentSection #commentBox{
+    display: flex;
+    flex-direction: column;
+}
+#commentBox #commentText{
+    width: 20rem;
+    padding: 1rem;
+    margin-bottom: 2px;
+}
+#commentBox #commentSubmit{
+    width: 5rem;
+    height: 2rem;
+    border: 1px solid #A43209;
+    border-radius: 14px;
+}
+.comments{
+    padding: 10px 0;
+    margin-bottom: 2rem;
+}
+.comments .comment{
+    font-variant: small-caps;
+}
+.comments .commentUser{
+    display: inline-flex;
+    height: 4rem;
+    align-items: center;
+}
+.comments .commenterName{
+    width: 100%;
+    display: inline-flex;
+}
+.comments .commenterPic{
+    width: 60%;
+    height: 100%;
+}
+.comment .commenterPic img{
+    height: 100%;
+    width: 100%;
+}
+.comment .message{
+    background-color: #352a314b;
+    text-align: center;
+    margin-right: 8px;
+}
+
+/* *****X******* Individual blog *******X********* */
 
 /* ******X****Blog page******X****** */
 
@@ -1434,15 +1537,16 @@ main .author-main .alphabet-sort .alphabet{
     }
     .blogbox .blogimg{
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         justify-content: start;
         align-items: center;
         width: 100%;
         height: 50%;
+        margin-bottom: 1rem;
     }
     .blogbox .blogimg .pic{
         height: 100%;
-        width: 50%;
+        width: 90%;
     }
     .blogbox .blogimg img{
         width: 100%;
