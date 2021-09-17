@@ -12,11 +12,24 @@ exports.get_admin = function(req, res, next) {
     res.render('admin', {title: 'Admin'});
 }
 
-exports.get_authorid = function(req, res, next) {
-    Author.findOne({me: req.user._id}).populate('me')
-        .exec(function(err, author){
-            res.send(author) 
-        })
+exports.get_authorpanel = function(req, res, next) {
+    async.parallel({
+        author: function(callback){
+            Author.findOne({me: req.user._id}).populate('me')
+            .exec(callback)
+        },
+        blogs: function(callback){
+            Blog.find({author: req.user._id})
+            .exec(callback)
+        }
+    },
+        function(err, results){
+            if (err){
+                return next(err)
+            }
+            res.render('mypanel', {layout: 'plain',title: 'My Panel', total: results})
+        }
+    )
 }
 
 exports.get_createAuthor = function(req, res, next){

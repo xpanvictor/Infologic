@@ -3,15 +3,15 @@ const mongoose = require('mongoose');
 const userSchema = new mongoose.Schema({
   first_name: {type: String, required: true},
   last_name: {type: String, required: true},
-  birthdate: {type: Date},
+  birthdate: {type: Date, default: Date.now},
   role: {type: Number, enum:[0, 1, 2], default: 0, max: 2},
   email: {type: String, required: true, unique: true},
   password: {type: String, required: true},
   favourites: [{title: String, body: String, date: Date}],
   reads: {type: mongoose.Schema.Types.ObjectId, ref: 'Article'},
-  join_date: {type: Date, default: Date},
+  join_date: {type: Date, default: Date.now},
   contact: {type: String},
-  bio: {type: String},
+  bio: {type: String}
 });
 
 userSchema.methods.validatePassword = function(password){

@@ -46,7 +46,7 @@
                                     <img src="/images/blog.png" alt="" class="src"> 
                                 </div>
                                 <div class="post-info button text-white">
-                                    <span><i class="fas fa-user">&nbsp;</i>Admin</span>&nbsp;
+                                    <span><i class="fas fa-user">&nbsp;</i><%= blog.author %> </span>&nbsp;
                                     <span><i class="fas fa-calendar-alt">&nbsp;</i><%= blog.dateAddedF %> </span>&nbsp;
                                     <span><i class="fas fa-user">&nbsp;</i><%= blog.section %> </span>
                                 </div>
@@ -56,7 +56,7 @@
                                 <div class="p">
                                     <%- blog.story %> 
                                 </div>
-                                <a href="/<%= blog.slug %> "><button>Continue reading</button></a>
+                                <a href="<%= blog.url %>"><button>Continue reading</button></a>
                             </div>
                         </div>
                     <% } %>

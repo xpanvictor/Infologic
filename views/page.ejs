@@ -1,29 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Font-Awesome Icons -->
-  <link rel="stylesheet" href="../node_modules/@fortawesome/fontawesome-free/css/all.css">
-  <!-- -------------- Owl carousel ---------------- --> 
-  <link rel="stylesheet" href="/stylesheets/owl.carousel.min.css">
-  <link rel="stylesheet" href="/stylesheets/owl.theme.default.min.css">
-  <!-- AOS library -->
-  <link rel="stylesheet" href="/stylesheets/aos-master/dist/aos.css">
-   <!-- Custom style -->
-  <link rel="stylesheet" href="/stylesheets/style.css">
   <title><%= blog.title %></title>
 </head>
-<body id="ablog" class="">
-  <%- include('./partials/nav') %> 
-  <main>
-
-   <section>
-    <%- include('./partials/about') %> 
-    <%- include('./partials/contact') %>  
-    <%- include('./partials/discussion') %> 
-   </section>
+  <main id="ablog" class="">
 
   <div id="blog">
     <div class="blog-pic">
@@ -41,9 +19,8 @@
   </div>
 
   <div class="like">
-    <h1 id="like"><%= blog.likes %> </h1>
-    <button onclick="liker('add')"><i class="fas fa-thumbs-up"></i></button>
-    <button onclick="liker('sub')"><i class="fas fa-thumbs-down"></i></button>
+    <h1 id="like"><%= blog.likes.length %> </h1>
+    <button onclick="liker()" id="liker"><i class="fas fa-thumbs-up"></i></button>
   </div>
 
   <section id="commentSection">
@@ -90,19 +67,6 @@
   </section>
 
   </main>
-  <%- include('./partials/footer') %> 
 
-  <!-- Jquery -->
-  <script type="text/javascript" src="/javascripts/jquery-3.6.0.min.js"></script>
-  <!-- Aos js from aos-master folder in stylesheets folder -->
-  <script src="/stylesheets/aos-master/dist/aos.js"></script>
-  <!-- -------------- Owl carousel ---------------- --> 
-  <script src="/javascripts/owl.carousel.min.js"></script>
-  <!-- -------------- Font awesome ---------------- --> 
-  <script src="/javascripts/all.js"></script>
-  <!-- Custom JS -->
-  <script src="/javascripts/index.js"></script>
-  <!-- Custom JS -->
+  <!-- Comment JS -->
   <script src="/javascripts/comment.js"></script>
-</body>
-</html>

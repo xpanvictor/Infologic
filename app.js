@@ -14,6 +14,7 @@ var mongoose          = require('mongoose');
 const passport        = require('passport');
 const session         = require('express-session');
 const flash           = require('express-flash');
+const bodyParser      = require('body-parser')
 const app = express();
 
 const initializepassport = require('./passportConfig');
@@ -32,12 +33,13 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(bodyParser.json())
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(expresslayout);
 
 app.set('layout layout', true);
 app.set('layout error', false);
-app.set('layout page', false);
+app.set('layout plain', false);
 
 // Passport
 app.use(flash());

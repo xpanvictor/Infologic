@@ -1,25 +1,30 @@
 
 let likevalue = document.querySelector('#like')
+let count = 0;
 
-function liker(what){
+function liker(){
      let like = parseInt(document.getElementById('like').innerText)
-     if (what === 'add'){
-          like++
+     let likeUrl = window.location.href + '/like/' + like;
+     let dislikeUrl = window.location.href + '/dislike/' + like;
+     
+     if (count == 0){
+          fetch(likeUrl, {
+               method: 'get',
+          })
+          .then(res => res.json())
+          .then(like => {likevalue.innerText = like[0];
+                    if (like[1]){ document.querySelector('#liker').style.backgroundColor = 'blue'}})
+          count++
      }
      else{
-          like--
+          fetch(dislikeUrl, {
+               method: 'get',
+          })
+          .then(res => res.json())
+          .then(like => {likevalue.innerText = like[0];
+               document.querySelector('#liker').style.backgroundColor = 'white'})
+          count = 0
      }
-
-     let likeUrl = window.location.href + '/like';
-     fetch(likeUrl, {
-          method: 'post',
-          headers: {
-            'Content-Type': 'application/json'   
-          },
-          body: JSON.stringify({like: like})
-     })
-     .then(res => res.json())
-     .then(like => likevalue.innerText = like)
 }
 
 let comments = document.querySelector('#comments')

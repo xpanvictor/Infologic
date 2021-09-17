@@ -185,3 +185,21 @@ if (dt) {
     }
     
 // End of functionality
+
+// Update button fetch functionality
+function updater(e){
+  e.preventDefault();
+  let composer = document.querySelector('#composer')
+  let formData = new FormData(composer);
+  let formValues = Object.fromEntries(formData)
+  let updatePage = window.location.href;
+  fetch(updatePage, {
+    method: 'put',
+    body: JSON.stringify(formData),
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  })
+  .then(res => res.json())
+  .then(res => console.log(res))
+}

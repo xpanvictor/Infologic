@@ -25,6 +25,6 @@ router.post('/createauthor', author_controller.post_createAuthor);
 router.get('/panel/admin', prbac.isAdmin, author_controller.get_admin);
 
 /* GET specific authors panel page. */
-router.get('/panel/:id', author_controller.get_authorid);
+router.get('/panel/:id', author_controller.get_authorpanel);
 
 module.exports = router;

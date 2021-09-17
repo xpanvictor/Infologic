@@ -1,10 +1,11 @@
 <div class="flex-column">
     <div class="">
-        <% if (name){ %>
+        <% if (typeof(name) !== 'undefined'){ %>
             <h4>Welcome <%= name %></h4>
         <% } %>
     </div>
     
+
     <div class="">
         <% if (typeof(errors) !== "undefined"){ %>
             <ul style="list-style: none; margin-left: -2em;">
@@ -23,7 +24,7 @@
     </div>
     
     <div class="w-100">
-        <form class="form-master w-100 pl-2 pr-2 pb-4" method="POST" action="" 
+        <form id="composer" class="form-master w-100 pl-2 pr-2 pb-4" method="POST" action="" 
         onsubmit="this.story.value=textField.innerHTML;
                     let rawstory = document.querySelector('#rawstory').value
                     if (rawstory.length == 0){
@@ -42,7 +43,10 @@
         
             <div class="form-group">
                 <legend>Description: <span class="text-muted">Leave empty if no description. Add tags using #tag</span></legend>
-                <textarea type="text" maxlength="500" class="form-control w-75" name="rawstory" id="rawstory"></textarea>
+                <textarea type="text" maxlength="500" class="form-control w-75" name="rawstory" 
+                id="rawstory"><% if (typeof(blog) !== 'undefined') { %><%- blog.description %> 
+                    <% } %>
+                </textarea>
             </div>
         
             <div class="form-group">
@@ -114,7 +118,9 @@
         
                     </div>
                 <div name="textField" class="textField form-control mt-2 p-2" id="textField" >
-        
+                    <% if (typeof(blog) !== 'undefined') { %>
+                        <%- blog.story %> 
+                    <% } %>
                 </div>
         
             </div>
@@ -138,9 +144,15 @@
                           <option value="Entertainment">Entertainment</option>
                     </select>
                 </div>
-                <button type="submit" class="btn btn-primary" id="sub" >Save Post</button>
+                <% if (typeof(update) !== 'undefined') { %>
+                    <span class="text-primary">Please review this box before you submit. The values have
+                        been reversed.
+                    </span>
+                    <button type="submit" class="btn btn-primary" id="update" onclick="updater(event)" >Update Post</button>
+                <% }else{ %>
+                    <button type="submit" class="btn btn-primary" id="sub" >Save Post</button>
+                <% } %>
             </div>
         </form>
     </div>
-
 </div>

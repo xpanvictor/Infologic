@@ -11,7 +11,7 @@ const articleSchema = new mongoose.Schema({
     visible: {type: Boolean, default: false, required: true},
     author: {type: mongoose.Schema.Types.ObjectId, ref: 'Author'},
     comments: [{name: String, body: String, date: {type: Date, default: Date.now}}],
-    likes: {type: Number, default: 0},
+    likes: [],
     reads: {type: Number, default: 0},
     slug: {type: String, required: true, unique: true}
 });

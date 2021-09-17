@@ -66,6 +66,35 @@ exports.blog_write_post = [
   }
 ];
 
+// Get request to uodate page
+exports.blog_update_get = function(req, res, next){
+  Blog.findOne({'slug': req.params.id})
+  .exec( function(err, blog){
+    if (err) return next(err);
+    res.render('write', {title: 'Update blog', name: 'hey', blog: blog, update: true})
+  })
+}
+
+// Put request to update page
+exports.blog_update_put = function(req, res, next){
+  console.log(req.body);
+  Blog.updateOne(
+    {'slug': req.params.id},
+    {$set: {
+      'title': 'Saturday',
+      'story': req.body.story,
+      'description': req.body.rawstory,
+      'visible': req.body.visible,
+      'section': req.body.section
+    }},
+    {upsert: true}
+  )
+  .exec(function(err, result){
+    if (err){return next(err)}
+    res.json(result)
+  })
+}
+
 // Get request to home page
 exports.blog_list = function(req, res, next){
   async.parallel({
@@ -126,7 +155,7 @@ exports.blog = function(req, res, next){
     //Successful then render
     // console.log(result)
     // res.send(result)
-    res.render('page', {layout: 'page' ,title: result.title, blog: result})
+    res.render('page', {layout: 'plain' ,title: result.title, blog: result})
   })
 }
 
@@ -143,12 +172,50 @@ exports.blog_comment = async function(req, res, next){
   })
 }
 
-//Post like to blog post with id
+//Get like to blog post with id
 exports.blog_like = async function(req, res, next){
-  await Blog.findOneAndUpdate({'slug': req.params.id}, {likes: req.body.like}, {new: true})
+  if (req.user){
+  Blog.findOne({'slug': req.params.id})
   .exec(function(err, result){
-    if (result){
-      res.json(result.likes)
+    if (!(result.likes.includes(req.user.email))){
+      Blog.findOneAndUpdate({'slug': req.params.id}, {$push: {likes: req.user.email }}, {new: true})
+      .exec(function(err, result){
+        if (err) return next(err);
+        if (result){
+          res.json([result.likes.length, true])
+        }
+      })
+    }
+    else{
+      res.json([req.params.like, true])
     }
   })
+  }
+  else{
+    res.json([req.params.like, false])
+  }
+}
+
+//Get dislike to blog post with id
+exports.blog_dislike = async function(req, res, next){
+  if (req.user){
+  Blog.findOne({'slug': req.params.id})
+  .exec(function(err, result){
+    if ((result.likes.includes(req.user.email))){
+      Blog.findOneAndUpdate({'slug': req.params.id}, {$pull: {'likes': req.user.email }}, {new: true})
+      .exec(function(err, result){
+        if (err) return next(err);
+        if (result){
+          res.json([result.likes.length, true])
+        }
+      })
+    }
+    else{
+      res.json([req.params.like, true])
+    }
+  })
+  }
+  else{
+    res.json([req.params.like, false])
+  }
 }
