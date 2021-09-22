@@ -60,6 +60,14 @@ exports.post_login = passport.authenticate('local', {
                 failureFlash: true
             })
 
-exports.get_user = function (req, res, next) {
-    res.render('userpage', {title: 'User', user: req.user})
+exports.get_user = function(req, res, next){
+    User.findOne({email: req.params.id}, {password: 0})
+    .exec(function (err, user){
+        if (err){ return next(err)}
+        res.render('userpage', {layout: 'plain', title: 'User', user: user})
+    })
+}
+
+exports.get_user_id = function (req, res, next) {
+    res.render('userpage', {title: 'User',})
 }

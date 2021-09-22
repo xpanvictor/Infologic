@@ -69,7 +69,7 @@ function displaylist(currentpage, unit){
             let p = document.createElement('p');
             let a = document.createElement('a');
 
-            img.src = "../images/blog.png";
+            img.src = shadow[point]['img'];
             author.innerHTML = shadow[point]['author'];
             date.innerHTML = shadow[point]['dateAddedF'];
             blogauthor.style.color = "#786D6D";

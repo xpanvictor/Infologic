@@ -33,7 +33,10 @@ html, body{
     /* Gradient color */
     --ash: linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%);
     /* home color */
-    --homecol: rgb(134, 6, 160)
+    --homecol: rgb(134, 6, 160);
+    --userdom: #860CB3;
+    --usercomp: #300F23;
+    --useraccent: #E8671C;
 }
 
 /* *************** Global classses ********************* */
@@ -348,6 +351,40 @@ button{
     box-shadow: 2px 2px gray;
     color: rgb(209, 12, 110);
     width: 2.2rem;
+}
+
+.searchf{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    align-self: center;
+}
+.searchq{
+    /* background-color: #F872BE;
+    Initial color of search*/
+    background-color: #0099FF;
+    color: #000;
+    border: 1px solid #A43209;
+    border-radius: 12px;
+    height: 1.5rem;
+    font-size: medium;
+    outline-style: none;
+    text-align: center;
+}
+.searchb{
+    height: fit-content;
+    width: fit-content;
+}
+
+/* search page */
+.searchPage{
+    padding: .2rem .9rem;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    height: fit-content;
+    background-color: #5323c477;
+    color: #101012;
+}
+.searchPage{
+    margin: auto;
+    font-weight: 600;
 }
 
 /* *******X******* NavBar *********X*********** */
@@ -840,7 +877,6 @@ main .major aside .trending .thumb:hover{
 }
 main .major aside .trending .thumb .post-title{
     height: 100%;
-    background-image: url("/images/fnf.jpg");
     background-size: contain;
 }
 main .major aside .trending .thumb .post-title h4{
@@ -1001,6 +1037,43 @@ main .user-major label:hover, main .user-major input:hover{
     background-color: black;
 }
 
+body#user{
+    background-color: var(--userdom);
+    color: var(--usercomp);
+    font-weight: 600;
+}
+#user .user{
+    padding: 0 .5rem;
+}
+#user .shortme{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+#user .pic{
+    width: 20%;
+    height: 10rem;
+    background-color: var(--useraccent);
+    border: 1px solid var(--usercomp);
+    border-radius: 4rem;
+}
+#user .pic img{
+    height: 100%;
+    width: 100%;
+}
+#user .desc{
+    margin: 0 1rem 0;
+    text-transform: capitalize;
+}
+#user .bio{
+    margin: 0 auto;
+    width: 40%;
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 2rem;
+}
+
 /* *****X******* User page *******X********* */
 
 /* ************* Author panel page ***************** */
@@ -1108,6 +1181,9 @@ table.serial td:first-child::before{
     height: 100%;
     margin-right: 5px;
     width: 70%;
+}
+.blogbox .blogimg .blogauthor h1{
+    margin: 0 auto;
 }
 .blogbox .btext{
     width: 50%;
@@ -1481,6 +1557,9 @@ main .author-main .alphabet-sort .alphabet{
         display: flex;
         flex-direction: column !important;
     }
+    .navv .nav-link{
+        padding: 1.1rem 0.5rem !important;
+    }
     #write .navv .nav-link{
         padding: .9rem 0.5rem !important;
     }
@@ -1506,7 +1585,6 @@ main .author-main .alphabet-sort .alphabet{
     }
     main .major aside .trending .thumb .post-title{
         height: 100%;
-        background-image: url("/images/fnf.jpg");
         background-size: contain;
     }
     main .major aside .trending .thumb .post-title h4{

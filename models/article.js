@@ -1,9 +1,12 @@
 const mongoose = require('mongoose');
 const slugify = require('slugify');
 const { DateTime } = require('luxon');
+const { text } = require('body-parser');
 
 const articleSchema = new mongoose.Schema({
-    title: {type: String, required: true},
+    title: {type: String, required: true, index: true},
+    blogImg: {type: Buffer},
+    blogImgType: {type: String},
     dateAdded: {type: Date, default: Date.now},
     story: {type: String, required: true},
     description: {type: String, required: true},
@@ -31,6 +34,14 @@ articleSchema.pre('validate', function(next){
 });
 
 articleSchema
+.virtual('img')
+.get(function(){
+    if (this.blogImg != null && this.blogImgType != null){
+        return `data:${this.blogImgType};charset=utf-8;base64,${this.blogImg.toString('base64')}`
+    }
+})
+
+articleSchema
 .virtual('safe')
 .get(function(){
     return this.slug.slice(-5, -1)
@@ -50,5 +61,7 @@ articleSchema
 });
 
 articleSchema.set('toJSON', {virtuals: true})
+
+articleSchema.index({title: 'text'})
 
 module.exports = mongoose.model('Article', articleSchema);

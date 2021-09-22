@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const { DateTime } = require('luxon')
 
 const userSchema = new mongoose.Schema({
   first_name: {type: String, required: true},
@@ -30,6 +31,20 @@ userSchema
 .get(function(){
   return (this.first_name + ' ' + this.last_name);
 })
+
+// Virtual for date added
+userSchema
+.virtual('join_dateF')
+.get(function () {
+  return DateTime.fromJSDate(this.join_date).toLocaleString(DateTime.DATE_MED);
+});
+
+// Virtual for date added
+userSchema
+.virtual('birthdateF')
+.get(function () {
+  return DateTime.fromJSDate(this.birthdate).toLocaleString(DateTime.DATE_MED);
+});
 
 userSchema
 .virtual('join_duration')

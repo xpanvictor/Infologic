@@ -12,6 +12,12 @@ router.get('/', function(req, res, next) {
 /* GET home findex page. */
 router.get('/blogs/discover', blog_controller.discover);
 
+/* GET request to search blog */
+router.get('/search', blog_controller.search)
+
+/* GET request to search category */
+router.get('/searchCategory/:id', blog_controller.searchCat)
+
 /* GET all page. */
 router.get('/blogs', blog_controller.blog_list);
 
@@ -25,10 +31,13 @@ router.post('/blog/create', blog_controller.blog_write_post);
 router.get('/blogs/blog/:id', blog_controller.blog);
 
 /* GET update specific blog page. */
-router.get('/blogs/blog/:id/update', blog_controller.blog_update_get);
+router.get('/blogs/blog/:id/update', prbac.checkAuthor, blog_controller.blog_update_get);
 
 /* PUT update specific blog page. */
 router.put('/blogs/blog/:id/update', blog_controller.blog_update_put);
+
+/* DELETE update specific blog page. */
+router.delete('/blogs/blog/:id/delete', blog_controller.blog_delete);
 
 /* POST comment to secific blog page. */
 router.post('/blogs/blog/:id/comment', blog_controller.blog_comment);

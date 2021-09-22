@@ -20,9 +20,9 @@ const app = express();
 const initializepassport = require('./passportConfig');
 initializepassport(passport);
 
-mongoose.connect('mongodb+srv://Admin:PisOZpf0xuesY5Fs@cluster0.9zycx.mongodb.net/blog?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true });
+// mongoose.connect('mongodb+srv://Admin:PisOZpf0xuesY5Fs@cluster0.9zycx.mongodb.net/blog?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true });
 // Mongoose local conection
-// mongoose.connect('mongodb://localhost:27017/blog?readPreference=primary&appname=MongoDB%20Compass&directConnection=true&ssl=false', { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true, useFindAndModify:false });
+mongoose.connect('mongodb://localhost:27017/blog?readPreference=primary&appname=MongoDB%20Compass&directConnection=true&ssl=false', { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true, useFindAndModify:false });
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -34,13 +34,14 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(bodyParser.json())
+// Node modules
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'node_modules')))
 app.use(expresslayout);
 
 app.set('layout layout', true);
 app.set('layout error', false);
 app.set('layout plain', false);
-
 // Passport
 app.use(flash());
 app.use(session({

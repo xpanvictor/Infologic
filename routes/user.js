@@ -13,7 +13,10 @@ router.post('/join', user_controller.post_create);
 router.post('/login', user_controller.post_login);
 
 /* GET user page. */
-router.get('/:id', prbac.checkAuth, user_controller.get_user);
+router.get('/me/:id', user_controller.get_user);
+
+/* GET user page. */
+router.get('/user/:id', prbac.checkAuth, user_controller.get_user_id);
 
 /* GET user update. */
 router.get('/:id/update', function(req, res, next) {

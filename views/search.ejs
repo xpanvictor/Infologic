@@ -1,0 +1,58 @@
+<head>
+     <title><%= title %> </title>
+</head>
+
+<main class="searchPage">
+     <section class="results">
+          <h1>Search results for <%= query %> </h1>
+
+          <% if (results.length != 0) { %>
+               <% for (var blog of results.blog) { %>
+                    <div class="blogbox">
+                         <div class="blogimg">
+                             <div class="pic">
+                                 <img src="<%= blog.img %> " alt="Blog image">
+                             </div>
+                             <div class="blogauthor" style="color: #053841;">
+                                 <h1><%= blog.author %> </h1>
+                                 <h1><%= blog.dateAddedF %> </h1>
+                             </div>
+                         </div>
+                         <div class="btext">
+                             <div class="blogtext">
+                                 <h1><%= blog.title %> </h1>
+                                 <p>
+                                     <%= blog.description %>  
+                                 </p>
+                             </div>
+                             <a href="<%= blog.url %> ">...Read more</a>
+                         </div>
+                     </div>
+               <% } %>     
+               <% for (var user of results.user) { %>
+                <div class="blogbox">
+                     <div class="blogimg">
+                         <div class="pic">
+                             <img src="../images/blog.png" alt="Blog image">
+                         </div>
+                         <div class="blogauthor" style="color: #053841;">
+                             <h1><%= user.full_name %> </h1>
+                             <h1><%= user.birthdateF %> </h1>
+                         </div>
+                     </div>
+                     <div class="btext">
+                         <div class="blogtext">
+                             <h1>Joined on <%= user.join_dateF %> </h1>
+                             <p>
+                                 <%= user.bio %>  
+                             </p>
+                         </div>
+                         <a href="/users/me/<%= user.email %> ">...View user</a>
+                     </div>
+                 </div>
+           <% } %>             
+          <% }else{ %>
+               <h2>No search result for <%= query %> </h2>
+          <% } %>
+     </section>
+</main>

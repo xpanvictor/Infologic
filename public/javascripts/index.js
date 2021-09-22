@@ -192,14 +192,20 @@ function updater(e){
   let composer = document.querySelector('#composer')
   let formData = new FormData(composer);
   let formValues = Object.fromEntries(formData)
+  formValues.story=textField.innerHTML;
+  if (formValues.rawstory.trim().length == 0){
+      formValues.rawstory = textField.textContent.slice(0, 500);
+  }
+  else{
+      formValues.rawstory = formValues.rawstory;
+  }
   let updatePage = window.location.href;
   fetch(updatePage, {
     method: 'put',
-    body: JSON.stringify(formData),
+    body: JSON.stringify(formValues),
     headers: {
       'Content-Type': 'application/json'
     }
   })
-  .then(res => res.json())
-  .then(res => console.log(res))
+  .then(res => window.location.href = res.url)
 }

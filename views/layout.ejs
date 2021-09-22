@@ -9,7 +9,7 @@
         <title><%= title %></title>
         
         <!-- Font-Awesome Icons -->
-        <link rel="stylesheet" href="../node_modules/@fortawesome/fontawesome-free/css/all.css">
+        <link rel="stylesheet" href="/@fortawesome/fontawesome-free/css/all.css">
         <!-- -------------- Owl carousel ---------------- --> 
         <link rel="stylesheet" href="/stylesheets/owl.carousel.min.css">
         <link rel="stylesheet" href="/stylesheets/owl.theme.default.min.css">
@@ -44,7 +44,7 @@
                     <%- include('./partials/disccat.ejs') %> 
                 <% } %>
     
-                <% if (title === "Make blog" || title === "Update blog") { %>
+                <% if (title === "Make blog" || title === "Update blog" || title ==="Create Error" || title ==="Blog found") { %>
                     <%- include('./partials/writedisp.ejs') %> 
                 <% } %>
     

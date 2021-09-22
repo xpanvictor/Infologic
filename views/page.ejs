@@ -5,17 +5,23 @@
 
   <div id="blog">
     <div class="blog-pic">
-      <img src="/images/blog.png" alt="" srcset="">
+      <img src="<%= blog.img %> " alt="Joker">
     </div>
     <div class="topic">
       <h1><%= blog.title %></h1>
     </div>
+
     <div class="stopic">
       <h3><%= blog.section %> </h3>
       <h3><%= blog.dateAddedF %> </h3>
     </div>
+
+    
+
     <p><%- blog.story %></p>
+
     <p><%= blog.author %> </p>
+
   </div>
 
   <div class="like">

@@ -10,17 +10,17 @@
             <div class="container">
                 <div class="moveable owl-carousel owl-theme">
 
-                    <% for (var blog of blogs) { %>
+                    <% for (var blog of rblogs.slice(0,8)) { %>
                         <div class="card" data-aos="fade-right" data-aos-delay="200">
                             <div class="card-image">
-                                <img src="/images/blog.png" alt="">
+                                <img src="<%= blog.img %> " alt="">
                             </div>
                             <h4><%= blog.title %> </h4>
                             <div class="card-author">
                                 <span class="auth text-black">Author:</span> <span class="name text-white">Admin</span>
                             </div>
                             <div class="text-area">
-                                <%- blog.story %> 
+                                <%- blog.description %> 
                             </div>
                             <button class="btn"><a href="<%= blog.url %>"> Read more </a></button>    
                         </div>
@@ -36,14 +36,14 @@
         
         <section class="major" data-aos="flip-right" data-aos-delay="100" data-aos-duration="2000">
             <div class="random">
-                <h1>Random Blogs</h1>
+                <h1>Trending</h1>
                 <div id="posts">
                     
-                    <% for (var blog of blogs) { %>
+                    <% for (var blog of trendiest.slice(0,6)) { %>
                         <div class="post">
                             <div class="post-image">
                                 <div>
-                                    <img src="/images/blog.png" alt="" class="src"> 
+                                    <img src="<%= blog.img %> " alt="" class="src"> 
                                 </div>
                                 <div class="post-info button text-white">
                                     <span><i class="fas fa-user">&nbsp;</i><%= blog.author %> </span>&nbsp;
@@ -52,9 +52,13 @@
                                 </div>
                             </div>
                             <div class="post-title">
-                                <a href="#" class="title"><%= blog.title %> </a>
+                                <a href="<%= blog.url %> " class="title"><%= blog.title %> </a>
+                                <span class="divider title"></span>
+                                <span class="title"><%= blog.reads %> <i class="fas fa-eye"></i></span>
+                                <span class="divider title"></span>
+                                <span class="title"><%= blog.likes.length %> <i class="fas fa-thumbs-up"></i></span>
                                 <div class="p">
-                                    <%- blog.story %> 
+                                    <%- blog.description %> 
                                 </div>
                                 <a href="<%= blog.url %>"><button>Continue reading</button></a>
                             </div>
@@ -69,79 +73,33 @@
                     <h1>Categories</h1>
                     <ul class="category-list">
                         <% for (var count of counts) { %>
-                            <li class="llink"><a href=""><%= count.n %> </a><span><%= count.c %> </span></li>
+                            <li class="llink">
+                                <a href="/searchCategory/<%= count.n %> "><%= count.n %> </a><span><%= count.c %> </span>
+                            </li>
                         <% } %>
                     </ul>
                 </div>
 
                 <!-- ---------- A lil functioality needed for this to work. Learn ----------- -->
                 <div class="trending"  data-aos="zoom-out-up" data-aos-delay="100" data-aos-duration="2000">
-                    <h1>Trending</h1>
+                    <h1>Random</h1>
                     <div class="set">
-                        <div class="thumb">
-                            <div class="post-title">
-                                <h4><a href="#" class="title">The title of the blog</a></h4>
-                                <div class="ptd">
-                                    <span>
-                                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quo enim fugi
-                                    at eum vero neque autem, quod, molesti ae sunt vitae consectetur explicabo
-                                    delectus tempora ducimus magnam ad quasi provident dicta et! Lorem ipsum dolor
-                                    sit amet consectetur adipisicing elit. Libero autem blanditiis magni, quia reiciendis esse,
-                                     error veritatis veniam consequatur dolorum, accusamus corporis praesentium.
-                                    Quidem labore provident est ullam commodi pariatur.
-                                    </span>
+                        <% for (var blog of blogs.slice(0,4)) { %>
+                            <div class="thumb" style="background-image: url(<%= blog.img %>)">
+                                <div class="post-title">
+                                    <h4><a href="#" class="title"><%= blog.title %> 
+                                        (<%= blog.likes.length %> <i class="fas fa-thumbs-up"></i>) </a>
+                                    </h4>
+                                    <div class="ptd">
+                                        <span>
+                                            <%= blog.description %> 
+                                        </span>
+                                    </div>
+                                    <a href="<%= blog.url %> "><button>Continue reading</button></a>
                                 </div>
-                                <a href="#"><button>Continue reading</button></a>
                             </div>
-                        </div>
-                        <div class="thumb">
-                            <div class="post-title">
-                                <h4><a href="#" class="title">The title of the blog</a></h4>
-                                <div class="ptd">
-                                    <span>
-                                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quo enim fugi
-                                    at eum vero neque autem, quod, molesti ae sunt vitae consectetur explicabo
-                                    delectus tempora ducimus magnam ad quasi provident dicta et! Lorem ipsum dolor
-                                    sit amet consectetur adipisicing elit. Libero autem blanditiis magni, quia reiciendis esse,
-                                     error veritatis veniam consequatur dolorum, accusamus corporis praesentium.
-                                    Quidem labore provident est ullam commodi pariatur.
-                                    </span>
-                                </div>
-                                <a href="#"><button>Continue reading</button></a>
-                            </div>
-                        </div>
-                        <div class="thumb">
-                            <div class="post-title">
-                                <h4><a href="#" class="title">The title of the blog</a></h4>
-                                <div class="ptd">
-                                    <span>
-                                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quo enim fugi
-                                    at eum vero neque autem, quod, molesti ae sunt vitae consectetur explicabo
-                                    delectus tempora ducimus magnam ad quasi provident dicta et! Lorem ipsum dolor
-                                    sit amet consectetur adipisicing elit. Libero autem blanditiis magni, quia reiciendis esse,
-                                     error veritatis veniam consequatur dolorum, accusamus corporis praesentium.
-                                    Quidem labore provident est ullam commodi pariatur.
-                                    </span>
-                                </div>
-                                <a href="#"><button>Continue reading</button></a>
-                            </div>
-                        </div>
-                        <div class="thumb">
-                            <div class="post-title">
-                                <h4><a href="#" class="title">The title of the blog</a></h4>
-                                <div class="ptd">
-                                    <span>
-                                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quo enim fugi
-                                    at eum vero neque autem, quod, molesti ae sunt vitae consectetur explicabo
-                                    delectus tempora ducimus magnam ad quasi provident dicta et! Lorem ipsum dolor
-                                    sit amet consectetur adipisicing elit. Libero autem blanditiis magni, quia reiciendis esse,
-                                     error veritatis veniam consequatur dolorum, accusamus corporis praesentium.
-                                    Quidem labore provident est ullam commodi pariatur.
-                                    </span>
-                                </div>
-                                <a href="#"><button>Continue reading</button></a>
-                            </div>
-                        </div>
+                        <% } %>
+                        
                     </div>
                     
                 </div>
